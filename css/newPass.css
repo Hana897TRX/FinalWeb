@@ -1,0 +1,34 @@
+.btn-outline-purple{
+    color:#8e7dfd;
+    background-color: #d9d4fa;
+    border-color:#cec6ff;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.btn-outline-purple:hover{
+    color:#fff;
+    background-color:#cec6ff;
+    border-color:#b8aefa;
+    font-weight: bold;
+}
+
+input[type=password] {
+    background-color: aliceblue;
+    border-radius: 6px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+input[type=password]:focus {
+    border-color: #696969;
+    border-radius: 2px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
