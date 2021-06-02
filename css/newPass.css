@@ -23,8 +23,9 @@ input[type=password] {
 }
 
 input[type=password]:focus {
-    border-color: #696969;
+    border-color: #7d9bfd;
     border-radius: 2px;
+    border-width: 4px;
 }
 
 .center {
