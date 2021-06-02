@@ -11,32 +11,55 @@
     <link rel="stylesheet" href="css/newUser.css">
 </head>
 <body id="newUserPage">
-    <!-- CSS FOR IMAGE TO THE SIDE? -->
-    <div class="center">
-        <form action="" method="">
-            <div>
-                <input type="text" placeholder="Nombre(s)" name="nameUser" id="nameUser"/>
-                <input type="date" name="dateUser" id="dateUser"/>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">Registrar Usuario</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div>
-                <input type="text" placeholder="Apellido(s)" name="surnameUser" id="surnameUser"/>
+            <div class="modal-body">
+                <div class="center">
+                    <form action="" method="">
+                        <div class="sameRow">
+                            <input type="text" placeholder="Nombre(s)" name="nameUser" id="nameUser" class="form-control input-box"/>
+                        </div>
+                        <div class="sameRow">
+                            <input type="date" name="dateUser" id="dateUser"/>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Apellido(s)" name="surnameUser" id="surnameUser"class="form-control input-box"/>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Correo" name="mailUser" id="mailUser"class="form-control input-box"/>
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Contraseña" name="passwordUser" id="passwordUser"class="form-control input-box"/>
+                        </div>
+                        <!--<div>
+                            <input type="password" placeholder="Confirme contraseña" name="reinforcePassword" id="reinforcePassword"/>
+                        </div>-->
+                    </form>   
+                </div>
             </div>
-            <div>
-                <input type="text" placeholder="Correo" name="mailUser" id="mailUser"/>
+            <div class="modal-footer">
+                <div>
+                    <!--<a href="">-->
+                        <input type="button" value="Cancelar" id="btnBack" class="btn-outline-blue" data-bs-dismiss="modal">
+                    <!--</a>-->
+                    <input type="button" value="Registrar" id="btnRegisUser" class="btn-outline-purple">
+                </div>
             </div>
-            <div>
-                <input type="password" placeholder="Contraseña" name="passwordUser" id="passwordUser"/>
-            </div>
-            <!--<div>
-                <input type="password" placeholder="Confirme contraseña" name="reinforcePassword" id="reinforcePassword"/>
-            </div>-->
-            <div>
-                <!--<a href="">-->
-                    <input type="button" value="Cancelar" id="btnBack" class="btn-outline-blue">
-                <!--</a>-->
-                <input type="button" value="Registrar" id="btnRegisUser" class="btn-outline-purple">
-            </div>
-        </form>   
+        </div>
+        </div>
     </div>
+
 </body>
 </html>
