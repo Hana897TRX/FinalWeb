@@ -1,6 +1,7 @@
 package com.example.FinalWeb.utility;
 
-import com.mysql.jdbc.Driver;
+//import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +9,7 @@ import java.sql.DriverManager;
 public class MySQLConnection {
     public static Connection getConnection(){
         // protocolo:tiposervidor://ip|nombre:puerto/bddefault?opciones&password=123
-        String cadena = "jdbc:mysql://localhost:3306/usuarios?user=root";
+        String cadena = "jdbc:mysql://localhost:3306/proyectoWeb?user=root";
 
         try{
             DriverManager.registerDriver(new Driver());

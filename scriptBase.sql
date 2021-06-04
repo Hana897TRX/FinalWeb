@@ -3,7 +3,7 @@ CREATE DATABASE proyectoWeb;
 
 USE proyectoWeb;
 
-DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS UserType;
 
 CREATE TABLE UserType(
     idType INT auto_increment NOT NULL ,
@@ -15,6 +15,7 @@ CREATE TABLE UserType(
 INSERT INTO UserType VALUES (0, 'Administrator'), (0, 'Supervisor'), (0, 'User');
 SELECT * FROM UserType;
 
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users(
     idUser INT auto_increment,
     name VARCHAR(150) NOT NULL,
@@ -51,3 +52,5 @@ CREATE TABLE Books(
     PRIMARY KEY (idBook),
     FOREIGN KEY (idAuthor) REFERENCES Author(idAuthor)
 ) ENGINE=INNODB;
+
+SELECT * FROM Books;
