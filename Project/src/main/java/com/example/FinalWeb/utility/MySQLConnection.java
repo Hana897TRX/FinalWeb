@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 public class MySQLConnection {
     public static Connection getConnection(){
         // protocolo:tiposervidor://ip|nombre:puerto/bddefault?opciones&password=123
-        String cadena = "jdbc:mysql://localhost:3306/usuarios?user=root";
+        String cadena = "jdbc:mysql://localhost:3306/proyectoweb?user=root";
 
         try{
             DriverManager.registerDriver(new Driver());
