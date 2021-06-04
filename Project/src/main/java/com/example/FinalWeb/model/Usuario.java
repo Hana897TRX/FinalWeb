@@ -10,17 +10,19 @@ public class Usuario implements Serializable {
     private Date birthday;
     private String email;
     private String password;
+    private int userType;
 
     public Usuario() {
     }
 
-    public Usuario(int idUser, String name, String lastName, Date birthday, String email, String password) {
+    public Usuario(int idUser, String name, String lastName, Date birthday, String email, String password, int userType) {
         this.idUser = idUser;
         this.name = name;
         this.lastName = lastName;
         this.birthday = birthday;
         this.email = email;
         this.password = password;
+        this.userType = userType;
     }
 
     public int getIdUser() {
@@ -71,6 +73,14 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
+    public int getUserType() {
+        return userType;
+    }
+
+    public void setUserType(int userType) {
+        this.userType = userType;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -80,6 +90,7 @@ public class Usuario implements Serializable {
                 ", birthday=" + birthday +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", userType=" + userType +
                 '}';
     }
 }
