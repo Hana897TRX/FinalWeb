@@ -4,6 +4,17 @@ CREATE DATABASE proyectoWeb;
 USE proyectoWeb;
 
 DROP TABLE IF EXISTS Users;
+
+CREATE TABLE UserType(
+    idType INT auto_increment NOT NULL ,
+    type VARCHAR(100) NOT NULL ,
+
+    PRIMARY KEY(idType)
+) ENGINE=INNODB;
+
+INSERT INTO UserType VALUES (0, 'Administrator'), (0, 'Supervisor'), (0, 'User');
+SELECT * FROM UserType;
+
 CREATE TABLE Users(
     idUser INT auto_increment,
     name VARCHAR(150) NOT NULL,
@@ -11,13 +22,17 @@ CREATE TABLE Users(
     birthday DATE NOT NULL,
     email VARCHAR(150) NOT NULL,
     password VARCHAR(224),
-    PRIMARY KEY(idUser)
+    userType INT NOT NULL,
+
+    PRIMARY KEY(idUser),
+    FOREIGN KEY (userType) REFERENCES UserType(idType)
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS Author;
 CREATE TABLE Author(
     idAuthor INT auto_increment,
     authorName VARCHAR(150),
+
     PRIMARY KEY (idAuthor)
 ) ENGINE=INNODB;
 
@@ -32,6 +47,7 @@ CREATE TABLE Books(
     coverBookContent MEDIUMBLOB,
     coverBookSize double,
     coverBookType VARCHAR(255),
+
     PRIMARY KEY (idBook),
     FOREIGN KEY (idAuthor) REFERENCES Author(idAuthor)
 ) ENGINE=INNODB;
