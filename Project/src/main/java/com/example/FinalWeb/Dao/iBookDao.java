@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface iBookDao {
     List<Book> getBooks();
+    boolean newBook(Book book);
 }

@@ -29,13 +29,7 @@ CREATE TABLE Users(
     FOREIGN KEY (userType) REFERENCES UserType(idType)
 ) ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Author;
-CREATE TABLE Author(
-    idAuthor INT auto_increment,
-    authorName VARCHAR(150),
-
-    PRIMARY KEY (idAuthor)
-) ENGINE=INNODB;
+SELECT * FROM Books;
 
 DROP TABLE IF EXISTS Books;
 CREATE TABLE Books(
@@ -43,14 +37,13 @@ CREATE TABLE Books(
     bookName VARCHAR(150) NOT NULL,
     isbn VARCHAR(15) NOT NULL,
     fechaCompra DATE NOT NULL,
-    idAuthor INT,
+    author VARCHAR(100),
     status VARCHAR(50),
     coverBookContent MEDIUMBLOB,
     coverBookSize double,
     coverBookType VARCHAR(255),
 
-    PRIMARY KEY (idBook),
-    FOREIGN KEY (idAuthor) REFERENCES Author(idAuthor)
+    PRIMARY KEY (idBook)
 ) ENGINE=INNODB;
 
 SELECT * FROM Books;

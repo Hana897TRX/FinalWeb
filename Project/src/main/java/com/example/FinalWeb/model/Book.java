@@ -8,18 +8,18 @@ public class Book {
     private String bookName;
     private String isbn;
     private Date fechaCompra;
-    private int idAuthor;
+    private String author;
     private String status;
     private InputStream coverBookContent;
     private double coverBookSize;
     private String coverBookType;
 
-    public Book(int idBook, String bookName, String isbn, Date fechaCompra, int idAuthor, String status, InputStream coverBookContent, double coverBookSize, String coverBookType) {
+    public Book(int idBook, String bookName, String isbn, Date fechaCompra, String author, String status, InputStream coverBookContent, double coverBookSize, String coverBookType) {
         this.idBook = idBook;
         this.bookName = bookName;
         this.isbn = isbn;
         this.fechaCompra = fechaCompra;
-        this.idAuthor = idAuthor;
+        this.author = author;
         this.status = status;
         this.coverBookContent = coverBookContent;
         this.coverBookSize = coverBookSize;
@@ -46,8 +46,8 @@ public class Book {
         return fechaCompra;
     }
 
-    public int getIdAuthor() {
-        return idAuthor;
+    public String getAuthor() {
+        return author;
     }
 
     public String getStatus() {
@@ -82,8 +82,8 @@ public class Book {
         this.fechaCompra = fechaCompra;
     }
 
-    public void setIdAuthor(int idAuthor) {
-        this.idAuthor = idAuthor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setStatus(String status) {
@@ -109,7 +109,7 @@ public class Book {
                 ", bookName='" + bookName + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", fechaCompra=" + fechaCompra +
-                ", idAuthor=" + idAuthor +
+                ", idAuthor=" + author +
                 ", status='" + status + '\'' +
                 ", coverBookContent=" + coverBookContent +
                 ", coverBookSize=" + coverBookSize +
