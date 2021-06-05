@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookDao implements iBookDao{
+public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
     @Override
     public List<Book> getBooks() {
         String sql = "SELECT * FROM Books";

@@ -3,6 +3,7 @@ package com.example.FinalWeb.dao;
 import com.example.FinalWeb.model.Usuario;
 import com.example.FinalWeb.utility.MySQLConnection;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +15,7 @@ public class UsuarioDao implements IUsuarioDao{
     @Override
     public Usuario getUser(String usuario, String password) {
         String sql = "SELECT idUser, name, lastName, birthday, email, password, userType FROM Users" +
-                " WHERE usuario = ? AND password = SHA2(?, 224)";
+                " WHERE email = ? AND password = SHA2(?, 224)";
 
         try{
             Connection conexion = MySQLConnection.getConnection();
@@ -78,13 +79,17 @@ public class UsuarioDao implements IUsuarioDao{
 
     @Override
     public Usuario saveUser(Usuario usuario) {
+        System.out.println("H" + usuario);
+        Connection conexion = MySQLConnection.getConnection();
         String sql_user = "INSERT INTO Users(name, lastName, birthday, email, password, userType) " +
                 "VALUES(?,?,?,?,SHA2(?, 224),?)";
 
+        System.out.println(usuario);
+
         try{
-            Connection conexion = MySQLConnection.getConnection();
+
             // Para devolver el id insertado
-            PreparedStatement preparedStatement = conexion.prepareStatement(sql_user, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = conexion.prepareStatement(sql_user);
 
             preparedStatement.setString(1, usuario.getName());
             preparedStatement.setString(2, usuario.getLastName());
@@ -93,13 +98,13 @@ public class UsuarioDao implements IUsuarioDao{
             preparedStatement.setString(5, usuario.getPassword());
             preparedStatement.setInt(6, 3);
 
-            int affectedRows = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            ResultSet resultSet = preparedStatement.getGeneratedKeys(); // Return resultSet con los id's inserted
-            resultSet.next();
+            //ResultSet resultSet = preparedStatement.getGeneratedKeys(); // Return resultSet con los id's inserted
+            //resultSet.next();
 
-            int idUser = resultSet.getInt(1);
-            usuario.setIdUser(idUser);
+            //int idUser = resultSet.getInt(1);
+            //usuario.setIdUser(idUser);
 
         } catch(Exception ex){
             System.out.println(ex.getMessage());
