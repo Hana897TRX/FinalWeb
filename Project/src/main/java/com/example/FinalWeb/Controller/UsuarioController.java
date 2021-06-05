@@ -24,7 +24,7 @@ public class UsuarioController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //request.setCharacterEncoding("UFF-8"); //Kinda gives me an error?
+        request.setCharacterEncoding("UFF-8"); 
         String  name = request.getParameter("name");
         String  lastName = request.getParameter("lastName");
         String  birthday = request.getParameter("birthday");
