@@ -28,10 +28,15 @@ let load = () => {
                 response => response.json()
             ).then(
                 response => {
-                    if (response.mensaje != undefined)
-                        alert(response.message);
-                    else
-                        alert(mensaje);
+                    console.log(response)
+                    if(response.user.idUser == 0 || response.user.idUser == undefined)
+                        if(response.mensaje != undefined)
+                            alert("El registro no se añadió correctamente");
+                        else
+                            alert("Ops!, algo pasó")
+                    else{
+                        alert(mensaje)
+                    }
                     document.getElementById("formulario").reset();
                 }
             ).catch(

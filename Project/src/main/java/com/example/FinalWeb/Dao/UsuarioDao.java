@@ -6,6 +6,7 @@ import com.example.FinalWeb.utility.MySQLConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,17 +78,14 @@ public class UsuarioDao implements IUsuarioDao {
 
     @Override
     public Usuario saveUser(Usuario usuario) {
-        System.out.println("H" + usuario);
         Connection conexion = MySQLConnection.getConnection();
         String sql_user = "INSERT INTO Users(name, lastName, birthday, email, password, userType) " +
                 "VALUES(?,?,?,?,SHA2(?, 224),?)";
 
-        System.out.println(usuario);
-
         try{
 
             // Para devolver el id insertado
-            PreparedStatement preparedStatement = conexion.prepareStatement(sql_user);
+            PreparedStatement preparedStatement = conexion.prepareStatement(sql_user, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, usuario.getName());
             preparedStatement.setString(2, usuario.getLastName());
@@ -98,11 +96,11 @@ public class UsuarioDao implements IUsuarioDao {
 
             preparedStatement.executeUpdate();
 
-            //ResultSet resultSet = preparedStatement.getGeneratedKeys(); // Return resultSet con los id's inserted
-            //resultSet.next();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys(); // Return resultSet con los id's inserted
+            resultSet.next();
 
-            //int idUser = resultSet.getInt(1);
-            //usuario.setIdUser(idUser);
+            int idUser = resultSet.getInt(1);
+            usuario.setIdUser(idUser);
 
         } catch(Exception ex){
             System.out.println(ex.getMessage());

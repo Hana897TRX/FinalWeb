@@ -24,7 +24,7 @@ public class UsuarioController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UFF-8"); 
+        request.setCharacterEncoding("UTF-8");
         String  name = request.getParameter("name");
         String  lastName = request.getParameter("lastName");
         String  birthday = request.getParameter("birthday");
@@ -41,7 +41,7 @@ public class UsuarioController extends HttpServlet {
         System.out.println(user.getEmail());
 
         UsuarioDao usuarioDao = new UsuarioDao();
-        Usuario userConIds = usuarioDao.saveUser(user); //Error here
+        Usuario userConIds = usuarioDao.saveUser(user);
 
         Gson gson = new Gson();
         String mensaje = "";
@@ -51,7 +51,7 @@ public class UsuarioController extends HttpServlet {
         if(userConIds.getIdUser() > 0){
             mensaje = gson.toJson(userConIds);
         }else{
-            mensaje = "{ \"idPersona\": 0, \"mensaje\": \"El registro no se inserto\"}";
+            mensaje = "{ \"idUser\": 0, \"mensaje\": \"El registro no se inserto\"}";
         }
 
         response.setContentType("application/json");
