@@ -34,6 +34,7 @@ SELECT * FROM Books;
 DROP TABLE IF EXISTS Books;
 CREATE TABLE Books(
     idBook INT auto_increment,
+    idUser INT NOT NULL,
     bookName VARCHAR(150) NOT NULL,
     isbn VARCHAR(15) NOT NULL,
     fechaCompra DATE NOT NULL,
@@ -43,7 +44,22 @@ CREATE TABLE Books(
     coverBookSize double,
     coverBookType VARCHAR(255),
 
-    PRIMARY KEY (idBook)
+    PRIMARY KEY (idBook),
+    FOREIGN KEY (idUser) REFERENCES Users(idUser)
 ) ENGINE=INNODB;
 
 SELECT * FROM Books;
+
+DROP TABLE IF EXISTS BookExchange;
+CREATE TABLE BookExchange(
+    idExchange INT NOT NULL,
+    idBookOwner INT NOT NULL,
+    idBookReceiver INT NOT NULL,
+    idBook INT NOT NULL,
+    exchangeDate DATE NOT NULL,
+
+    PRIMARY KEY (idExchange),
+    FOREIGN KEY (idBookOwner) REFERENCES Users(idUser),
+    FOREIGN KEY (idBookReceiver) REFERENCES Users(idUser),
+    FOREIGN KEY (idBook) REFERENCES Books(idBook)
+) ENGINE=INNODB;

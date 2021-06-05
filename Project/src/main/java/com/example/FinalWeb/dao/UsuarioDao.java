@@ -1,17 +1,15 @@
-package com.example.FinalWeb.dao;
+package com.example.FinalWeb.Dao;
 
 import com.example.FinalWeb.model.Usuario;
 import com.example.FinalWeb.utility.MySQLConnection;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDao implements IUsuarioDao{
+public class UsuarioDao implements IUsuarioDao {
     @Override
     public Usuario getUser(String usuario, String password) {
         String sql = "SELECT idUser, name, lastName, birthday, email, password, userType FROM Users" +

@@ -1,4 +1,4 @@
-package com.example.FinalWeb.dao;
+package com.example.FinalWeb.Dao;
 
 import com.example.FinalWeb.model.Usuario;
 

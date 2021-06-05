@@ -1,9 +1,8 @@
 package com.example.FinalWeb.Controller;
 
-import com.example.FinalWeb.dao.UsuarioDao;
+import com.example.FinalWeb.Dao.UsuarioDao;
 import com.example.FinalWeb.model.Usuario;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
