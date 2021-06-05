@@ -14,26 +14,31 @@ let load = () => {
         formData.append("email", mail);
         formData.append("password", password);
 
+        let regEx = /[a-zA-Z0-9]+@+[a-z]+\.[a-z]+/
 
-        fetch('usuario', {
-            method: 'POST',
-            body: formData
-        }).then(
-            response => response.json()
-        ).then(
-            response => {
-                if (response.mensaje != undefined)
-                    alert(response.message);
-                else
-                    alert(mensaje);
-                document.getElementById("formulario").reset();
-            }
-        ).catch(
-            error => console.log(error)
-        )
+        if(name == "" || lastName == "" || !birthday || mail == "" || password == "")
+            alert("Es necesario llenar todos los campos");
+        else if(!regEx.test(mail))
+            alert("Correo invalido")
+        else {
+            fetch('usuario', {
+                method: 'POST',
+                body: formData
+            }).then(
+                response => response.json()
+            ).then(
+                response => {
+                    if (response.mensaje != undefined)
+                        alert(response.message);
+                    else
+                        alert(mensaje);
+                    document.getElementById("formulario").reset();
+                }
+            ).catch(
+                error => console.log(error)
+            )
+        }
     })
-
-
 }
 
 document.addEventListener("DOMContentLoaded", load)
