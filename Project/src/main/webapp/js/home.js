@@ -4,7 +4,10 @@ function ready(){
 
 function getBooks(){
     fetch('books', {
-        method: 'GET'
+        method: 'GET',
+        body: {
+            'action' : 'GET_BOOKS'
+        }
     })
         .then(
             response => response.json()

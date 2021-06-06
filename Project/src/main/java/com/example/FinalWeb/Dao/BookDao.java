@@ -2,11 +2,13 @@ package com.example.FinalWeb.Dao;
 
 import com.example.FinalWeb.model.Book;
 import com.example.FinalWeb.utility.MySQLConnection;
+import org.apache.commons.io.IOUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
@@ -26,6 +28,7 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
             while (resultSet.next()){
                 book = new Book();
                 book.setIdBook(resultSet.getInt("idBook"));
+                book.setIdOwner(resultSet.getInt("idUser"));
                 book.setBookName(resultSet.getString("bookName"));
                 book.setIsbn(resultSet.getString("isbn"));
                 book.setFechaCompra(resultSet.getDate("fechaCompra"));
@@ -47,9 +50,50 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
     }
 
     @Override
+    public List<Book> getBooks(int idUser) {
+        Connection connection = MySQLConnection.getConnection();
+        String sql = "SELECT * FROM Books WHERE idUser = ?";
+
+        List<Book> bookList = new ArrayList();
+        Book book;
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, idUser);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                book = new Book();
+                book.setIdBook(resultSet.getInt("idBook"));
+                book.setIdOwner(resultSet.getInt("idUser"));
+                book.setBookName(resultSet.getString("bookName"));
+                book.setIsbn(resultSet.getString("isbn"));
+                book.setFechaCompra(resultSet.getDate("fechaCompra"));
+                book.setAuthor(resultSet.getString("author"));
+                book.setStatus(resultSet.getString("status"));
+                book.setCoverBookContent(resultSet.getBinaryStream("coverBookContent"));
+                book.setCoverBookSize(resultSet.getDouble("coverBookSize"));
+                book.setCoverBookType(resultSet.getString("coverBookType"));
+                //book.setContent(Base64.getEncoder().encode(book.getCoverBookContent()));
+                book.setContent(Base64.getEncoder().encodeToString(IOUtils.toByteArray(book.getCoverBookContent())));
+
+                bookList.add(book);
+            }
+
+            return bookList;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return null;
+    }
+
+    @Override
     public boolean newBook(Book book) {
         Connection connection = MySQLConnection.getConnection();
-        String sql = "INSERT INTO Books(bookName, isbn, fechaCompra, author, status, coverBookContent, coverBookSize, coverBookType) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Books(bookName, isbn, fechaCompra, author, status, coverBookContent, coverBookSize, coverBookType, idUser) VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, book.getBookName());
@@ -60,6 +104,8 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
             preparedStatement.setBinaryStream(6, book.getCoverBookContent());
             preparedStatement.setDouble(7, book.getCoverBookSize());
             preparedStatement.setString(8, book.getCoverBookType());
+            preparedStatement.setInt(9, book.getIdOwner());
+
             preparedStatement.executeUpdate();
             return true;
         }

@@ -16,11 +16,31 @@ import java.util.List;
 public class BookController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.print("First 1");
-        BookDao bookDao = new BookDao();
+        String message = "";
 
-        List<Book> bookList = bookDao.getBooks();
-        System.out.println(bookList);
+        if(request.getParameter("action") == "GET_BOOKS"){
+            BookDao bookDao = new BookDao();
+            List<Book> bookList = bookDao.getBooks();
+            System.out.println(bookList);
+            request.setAttribute("books", bookList);
+            request.getRequestDispatcher("/index.jsp").forward(request,response);
+        }
+        else {//if (request.getParameter("action") == "GET_USER_BOOKS"){
+            int idUser = 0;
+            try {
+                idUser = Integer.parseInt(request.getParameter("idUser"));
+            }
+            catch (Exception e){
+                idUser = 1;
+            }
+
+            BookDao bookDao = new BookDao();
+            List<Book> bookList = bookDao.getBooks(idUser);
+            //System.out.println(bookList);
+            request.setAttribute("userBooks", bookList);
+            request.getRequestDispatcher("/userBooks.jsp").forward(request,response);
+        }
+
     }
 
     @Override
@@ -32,6 +52,7 @@ public class BookController extends HttpServlet {
         book.setFechaCompra(Date.valueOf(request.getParameter("bookDate")));
         book.setAuthor(request.getParameter("bookAuthor"));
         book.setStatus(request.getParameter("status"));
+        book.setIdOwner(Integer.parseInt(request.getParameter("idOwner")));
 
         Part cover = request.getPart("imgCover");
         book.setCoverBookContent(cover.getInputStream());

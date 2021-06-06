@@ -1,6 +1,8 @@
 package com.example.FinalWeb.Controller;
 
+import com.example.FinalWeb.Dao.BookDao;
 import com.example.FinalWeb.Dao.UsuarioDao;
+import com.example.FinalWeb.model.Book;
 import com.example.FinalWeb.model.Usuario;
 import com.google.gson.Gson;
 
@@ -13,23 +15,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "usuario", value = "/usuario")
 @MultipartConfig
 public class UsuarioController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        super.doGet(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UFF-8"); 
+        System.out.println("H0");
+        request.setCharacterEncoding("UTF-8");
         String  name = request.getParameter("name");
         String  lastName = request.getParameter("lastName");
         String  birthday = request.getParameter("birthday");
         String  email = request.getParameter("email");
         String  password = request.getParameter("password");
+
+        System.out.println("H1");
 
         Usuario user = new Usuario();
         user.setName(name);

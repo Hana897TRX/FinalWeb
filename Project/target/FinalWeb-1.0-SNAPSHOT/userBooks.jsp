@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -14,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="css/userBooks.css">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
@@ -38,31 +40,29 @@
     <table class="table table-dark">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Book title</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Fecha de compra</th>
+            <th scope="col">Author</th>
+            <th scope="col">Status</th>
+            <th scope="col">Cover book</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
+        <c:forEach items="${userBooks}" var="book">
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">${book.bookName}</th>
+            <td>${book.isbn}</td>
+            <td>${book.fechaCompra}</td>
+            <td>${book.author}</td>
+            <td>${book.status}</td>
+            <td><img src="data:${book.coverBookType};base64,${book.content}" width="100" height="158"></td>
+            <td><button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}"><i class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i class="bi bi-trash2"></i></button>
+            </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>
@@ -78,7 +78,7 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <form action="books" method="POST" enctype="multipart/form-data">
+                    <form action="books" id="formulario" method="POST" enctype="multipart/form-data">
                         <div class="row justify-content-md-center">
                             <div class="col-sm-8">
                                 <div class="input-group mb-3">
@@ -133,23 +133,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" id="newBookR" class="btn btn-success">Register new book</button>
+                <button type="button" id="newBookR" data-bs-dismiss="modal" class="btn btn-success">Register new book</button>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Toast -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-    <div id="toastResult" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
         </div>
     </div>
 </div>
