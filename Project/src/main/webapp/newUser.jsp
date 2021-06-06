@@ -30,25 +30,25 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">Registrar Usuario</h4>
+                <h3 class="modal-title" id="exampleModalLabel">Registrar Usuario</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="center">
+                <div class="row justify-content-md-center">
                     <form action="" method="" id="formulario">
                         <div class="sameRow">
-                            <input type="text" placeholder="Nombre(s)" name="nameUser" id="nameUser" class="form-control input-box"/>
+                            <input type="text" placeholder="Nombre(s)" name="nameUser" class="form-control" id="nameUser" class="form-control input-box"/>
                         </div>
                         <div class="sameRow">
-                            <input type="date" name="dateUser" id="dateUser"/>
+                            <input type="date" name="dateUser" id="dateUser" class="form-control"/>
                         </div>
-                        <div>
+                        <div class="sameRow">
                             <input type="text" placeholder="Apellido(s)" name="surnameUser" id="surnameUser"class="form-control input-box"/>
                         </div>
-                        <div>
+                        <div class="sameRow">
                             <input type="text" placeholder="Correo" name="mailUser" id="mailUser"class="form-control input-box"/>
                         </div>
-                        <div>
+                        <div class="sameRow">
                             <input type="password" placeholder="Contraseña" name="passwordUser" id="passwordUser"class="form-control input-box"/>
                         </div>
                         <!--<div>
