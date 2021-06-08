@@ -16,6 +16,24 @@
     font-weight: bold;
 }
 
+.btn-outline-green{
+    color: #90fd7d;
+    background-color: #dcfad4;
+    border-color: #daffc6;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.btn-outline-green:hover{
+    color:#fff;
+    background-color: #dcfad4;
+    border-color: #b3faae;
+    font-weight: bold;
+}
+
 .btn-outline-blue{
     color:#7d9bfd;
     background-color: #d6defa;

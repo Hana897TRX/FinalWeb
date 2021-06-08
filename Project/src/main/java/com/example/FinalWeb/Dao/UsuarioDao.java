@@ -114,7 +114,7 @@ public class UsuarioDao implements IUsuarioDao {
         Usuario user = null;
         List<Usuario> usuarios = new ArrayList();
 
-        String sql = "SELECT idUser, name, lastName, birthday, email, userType FROM Users";
+        String sql = "SELECT * FROM Users";
         try {
             Connection conexion = MySQLConnection.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(sql);
@@ -122,10 +122,12 @@ public class UsuarioDao implements IUsuarioDao {
 
             while(resultSet.next()){
                 user = new Usuario();
+                user.setIdUser(resultSet.getInt("idUser"));
                 user.setName(resultSet.getString("name"));
                 user.setLastName(resultSet.getString("lastName"));
                 user.setBirthday(resultSet.getDate("birthday"));
                 user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
                 user.setUserType(resultSet.getInt("userType"));
                 usuarios.add(user);
             }

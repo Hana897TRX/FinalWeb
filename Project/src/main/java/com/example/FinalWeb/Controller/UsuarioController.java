@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -23,15 +24,27 @@ import java.util.List;
 public class UsuarioController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doGet(request, response);
+        /*HttpSession sesion = request.getSession();
+        if(sesion.getAttribute("usuario") != null) {
+            UsuarioDao usuarioDao = new UsuarioDao();
+            List<Usuario> usuarios = usuarioDao.getUsers();
+            request.setAttribute("usuarios", usuarios);
+            request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
+        }
+        else
+            request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);*/
+        System.out.println("Got to controller");
+        UsuarioDao usuarioDao = new UsuarioDao();
+        List<Usuario> usuariosList = usuarioDao.getUsers();
+        request.setAttribute("usuarioslist", usuariosList);
+        request.getRequestDispatcher("/tableUsers.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
+
         System.out.println("H0");
-=======
->>>>>>> 9c7dd6dcfaae08ec117110a39133e92e940f0689
+
         request.setCharacterEncoding("UTF-8");
         String  name = request.getParameter("name");
         String  lastName = request.getParameter("lastName");

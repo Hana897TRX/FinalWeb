@@ -17,7 +17,7 @@
 }
 
 .btn-outline-green{
-    color: #90fd7d;
+    color: #70a56f;
     background-color: #dcfad4;
     border-color: #daffc6;
     border-radius: 8px;
@@ -28,9 +28,9 @@
 }
 
 .btn-outline-green:hover{
-    color:#fff;
+    color: #15923e;
     background-color: #dcfad4;
-    border-color: #b3faae;
+    border-color: #90fd7d;
     font-weight: bold;
 }
 
