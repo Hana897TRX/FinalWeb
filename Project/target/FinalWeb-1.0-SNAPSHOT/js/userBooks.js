@@ -1,6 +1,6 @@
 function ready(){
     changeImgOnSelected();
-    getBooks()
+    //getBooks()
 
     document.getElementById("newBookR").addEventListener("click", upload);
 }

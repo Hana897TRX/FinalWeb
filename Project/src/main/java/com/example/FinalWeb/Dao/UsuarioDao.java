@@ -101,6 +101,7 @@ public class UsuarioDao implements IUsuarioDao {
 
             int idUser = resultSet.getInt(1);
             usuario.setIdUser(idUser);
+            return usuario;
 
         } catch(Exception ex){
             System.out.println(ex.getMessage());
