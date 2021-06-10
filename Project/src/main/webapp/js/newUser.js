@@ -1,6 +1,7 @@
 let load = () => {
     let boton = document.getElementById("btnRegisUser");
     boton.addEventListener("click", () => {
+        let not = new Notyf();
         let name = document.getElementById("nameUser").value;
         let lastName = document.getElementById("surnameUser").value;
         let birthday = document.getElementById("dateUser").value;
@@ -17,9 +18,9 @@ let load = () => {
         let regEx = /[a-zA-Z0-9]+@+[a-z]+\.[a-z]+/
 
         if(name == "" || lastName == "" || !birthday || mail == "" || password == "")
-            alert("Es necesario llenar todos los campos");
+            not.error("Es necesario llenar todos los campos");
         else if(!regEx.test(mail))
-            alert("Correo invalido")
+            not.error("Correo invalido")
         else {
             fetch('usuario', {
                 method: 'POST',
@@ -29,13 +30,13 @@ let load = () => {
             ).then(
                 response => {
                     console.log(response)
-                    if(response.user.idUser == 0 || response.user.idUser == undefined)
+                    if(response.idUser == 0 || response.idUser == undefined)
                         if(response.mensaje != undefined)
-                            alert("El registro no se añadió correctamente");
+                            not.error("El registro no se añadió correctamente");
                         else
-                            alert("Ops!, algo pasó")
+                            not.error("Ops!, algo pasó")
                     else{
-                        alert(mensaje)
+                        not.success("Registro añadido correctamente")
                     }
                     document.getElementById("formulario").reset();
                 }
