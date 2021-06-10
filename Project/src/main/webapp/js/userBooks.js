@@ -76,7 +76,7 @@ function upload(){
 
                             let formData = new FormData();
 
-                            if(document.getElementById("idBook").value != ""){
+                            if(document.getElementById("idBook").value !== ""){
                                 formData.append('idBook', document.getElementById("idBook").value);
                                 method = 'PUT'
                             }

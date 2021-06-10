@@ -2,6 +2,7 @@ package com.example.FinalWeb.Dao;
 
 import com.example.FinalWeb.model.Book;
 import com.example.FinalWeb.utility.MySQLConnection;
+import com.mysql.cj.conf.ConnectionPropertiesTransform;
 import org.apache.commons.io.IOUtils;
 
 import java.sql.Connection;
@@ -89,6 +90,34 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
         }
 
         return null;
+    }
+
+    @Override
+    public boolean updateBook(Book book) {
+        String sql = "UPDATE Books SET bookName = ?, isbn = ?, fechaCompra = ?, author = ?, status = ?, coverBookContent = ?, coverBookSize = ?, coverBookType = ?, idUser = ? WHERE idBook = ?";
+        Connection connection = MySQLConnection.getConnection();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, book.getBookName());
+            preparedStatement.setString(2, book.getIsbn());
+            preparedStatement.setDate(3, book.getFechaCompra());
+            preparedStatement.setString(4, book.getAuthor());
+            preparedStatement.setString(5, book.getStatus());
+            preparedStatement.setBinaryStream(6, book.getCoverBookContent());
+            preparedStatement.setDouble(7, book.getCoverBookSize());
+            preparedStatement.setString(8, book.getCoverBookType());
+            preparedStatement.setInt(9, book.getIdOwner());
+            preparedStatement.setInt(10, book.getIdBook());
+
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return false;
     }
 
     @Override
