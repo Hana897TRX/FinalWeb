@@ -1,26 +1,59 @@
 function ready(){
     changeImgOnSelected();
-    //getBooks()
 
     document.getElementById("newBookR").addEventListener("click", upload);
+    document.getElementById("addBook").addEventListener("click", clear)
+
+    update();
 }
 
-function getBooks(){
+function clear(){
+    document.getElementById("newBookR").textContent = "Save new book";
+    document.getElementById("formulario").reset();
+}
 
-    fetch(
-        'books', {
-            method: 'GET',
-            body : {
-                'action' : 'GET_USER_BOOKS',
-                'idOwner' : 1
-            }
+function update() {
+
+    let editBtns = document.querySelectorAll(".btn-edit");
+
+    let getBookInfo = function(event) {
+        let bookId = event.target.getAttribute("data-id");
+
+        if(bookId == null)
+            return;
+
+        let formData = new FormData();
+        formData.append('idBook', bookId);
+
+        fetch('books', {
+            method : 'POST',
+            body : formData
         })
-        .then(
-            response => response.json()
-        )
-        .then(
-            console.log(response)
-        )
+            .then(
+                response => response.json()
+            )
+            .then(
+                response => {
+                    console.log(response)
+                    console.log(new Date(response.fechaCompra).toISOString())
+                    document.getElementById("bookName").value = response.bookName;
+                    document.getElementById("bookIsbn").value = response.isbn;
+                    document.getElementById("bookDate").value = response.fechaCompra;
+                    document.getElementById("bookAuthor").value = response.author;
+                    document.getElementById("bookStatus").value = response.status;
+                    document.getElementById("imgBookCover").setAttribute("src", "data:" + response.coverBookType + ";base64," + response.content)
+                    document.getElementById("idBook").value = response.idBook;
+                    document.getElementById("newBookR").textContent = "Save changes";
+                }
+            )
+            .catch(
+                error => console.log(error)
+            )
+    }
+
+    editBtns.forEach(function (element) {
+        element.addEventListener("click", getBookInfo)
+    })
 }
 
 function upload(){
@@ -32,6 +65,7 @@ function upload(){
     let selected = document.getElementById("bookStatus");
     let status = selected.options[selected.selectedIndex].text;
     let file = document.getElementById("bookCover").files[0];
+    let method = 'POST';
 
     if(bookName.length > 5 && bookName.length < 20){
         if(bookIsbn.length > 5 && bookIsbn.length < 20){
@@ -42,6 +76,11 @@ function upload(){
 
                             let formData = new FormData();
 
+                            if(document.getElementById("idBook").value != ""){
+                                formData.append('idBook', document.getElementById("idBook").value);
+                                method = 'PUT'
+                            }
+
                             formData.append('bookName', bookName);
                             formData.append('bookIsbn', bookIsbn);
                             formData.append('bookDate', bookDate);
@@ -51,7 +90,7 @@ function upload(){
                             formData.append('idOwner', '1')
 
                             fetch('books', {
-                                method: 'POST',
+                                method: method,
                                 body: formData
                             })
                                 .then(
@@ -62,7 +101,7 @@ function upload(){
                                         console.log(response)
                                         if (response.status === "1") {
                                             not.success("Book has been added");
-                                            document.getElementById("formulario").reset()
+                                            document.getElementById("formulario").reset();
                                         } else if (response.status === "0") {
                                             not.error("Error, no se ha añadadido el registro");
                                         }

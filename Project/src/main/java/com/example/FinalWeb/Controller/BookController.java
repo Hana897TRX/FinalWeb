@@ -2,6 +2,8 @@ package com.example.FinalWeb.Controller;
 
 import com.example.FinalWeb.Dao.BookDao;
 import com.example.FinalWeb.model.Book;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -45,34 +47,49 @@ public class BookController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Book book = new Book();
-        request.setCharacterEncoding("UTF-8");
-        book.setBookName(request.getParameter("bookName"));
-        book.setIsbn(request.getParameter("bookIsbn"));
-        book.setFechaCompra(Date.valueOf(request.getParameter("bookDate")));
-        book.setAuthor(request.getParameter("bookAuthor"));
-        book.setStatus(request.getParameter("status"));
-        book.setIdOwner(Integer.parseInt(request.getParameter("idOwner")));
+        if (request.getParameter("idBook") != null){
+            int bookid = Integer.parseInt(request.getParameter("idBook"));
 
-        Part cover = request.getPart("imgCover");
-        book.setCoverBookContent(cover.getInputStream());
-        book.setCoverBookSize(cover.getSize());
-        book.setCoverBookType(cover.getContentType());
+            Book book;
+            BookDao bookDao = new BookDao();
+            book = bookDao.getBook(bookid);
+            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+            String message = gson.toJson(book);
 
-        BookDao bookDao = new BookDao();
-        boolean resultado = bookDao.newBook(book);
-
-        String message = "";
-
-        if(resultado){
-            message = "{ \"message\" : \" Libro registrado con éxito \", \"status\" : \"1\" }";
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(message);
         }
-        else{
-            message = "{ \"message\" : \" Error en el registro \", \"status\" : \"0\" }";
-        }
+        else {
 
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.print(message);
+            Book book = new Book();
+            request.setCharacterEncoding("UTF-8");
+            book.setBookName(request.getParameter("bookName"));
+            book.setIsbn(request.getParameter("bookIsbn"));
+            book.setFechaCompra(Date.valueOf(request.getParameter("bookDate")));
+            book.setAuthor(request.getParameter("bookAuthor"));
+            book.setStatus(request.getParameter("status"));
+            book.setIdOwner(Integer.parseInt(request.getParameter("idOwner")));
+
+            Part cover = request.getPart("imgCover");
+            book.setCoverBookContent(cover.getInputStream());
+            book.setCoverBookSize(cover.getSize());
+            book.setCoverBookType(cover.getContentType());
+
+            BookDao bookDao = new BookDao();
+            boolean resultado = bookDao.newBook(book);
+
+            String message = "";
+
+            if (resultado) {
+                message = "{ \"message\" : \" Libro registrado con éxito \", \"status\" : \"1\" }";
+            } else {
+                message = "{ \"message\" : \" Error en el registro \", \"status\" : \"0\" }";
+            }
+
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(message);
+        }
     }
 }

@@ -27,7 +27,7 @@
         <a class="navbar-brand" href="#">Book Exchange</a>
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button id="addBook" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Add new book
                 </button>
                 <button type="button" class="btn btn-info">Back</button>
@@ -58,8 +58,9 @@
             <td>${book.author}</td>
             <td>${book.status}</td>
             <td><img src="data:${book.coverBookType};base64,${book.content}" width="100" height="158"></td>
-            <td><button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}"><i class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
-                <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i class="bi bi-trash2"></i></button>
+            <td>
+                <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i data-id="${book.idBook}" class="bi bi-pen"></i></button>
+                <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i data-id="${book.idBook}" class="bi bi-trash2"></i></button>
             </td>
         </tr>
         </c:forEach>
@@ -106,10 +107,10 @@
                                     <span class="input-group-text col-sm-3">Book satus</span>
                                     <select id="bookStatus" class="form-select" aria-label="Default select example">
                                         <option selected>Choose one</option>
-                                        <option value="1">New</option>
-                                        <option value="2">Like new</option>
-                                        <option value="3">Good</option>
-                                        <option value="3">Bad</option>
+                                        <option value="New">New</option>
+                                        <option value="Like new">Like new</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Bad">Bad</option>
                                     </select>
                                 </div>
                             </div>
@@ -127,6 +128,7 @@
                                     <input id="bookCover" type="file" id="formFile" name="file">
                                 </div>
                             </div>
+                            <input id="idBook" type="hidden">
                         </div>
                     </form>
                 </div>

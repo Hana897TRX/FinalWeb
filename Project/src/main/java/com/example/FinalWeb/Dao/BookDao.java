@@ -5,6 +5,7 @@ import com.example.FinalWeb.utility.MySQLConnection;
 import org.apache.commons.io.IOUtils;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -82,6 +83,43 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
             }
 
             return bookList;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return null;
+    }
+
+    @Override
+    public Book getBook(int idBook) {
+        String sql = "SELECT * FROM Books WHERE idBook = ?";
+        Connection connection = MySQLConnection.getConnection();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, idBook);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            Book book;
+
+            if (resultSet.next()){
+                book = new Book();
+                book.setIdBook(resultSet.getInt("idBook"));
+                book.setIdOwner(resultSet.getInt("idUser"));
+                book.setBookName(resultSet.getString("bookName"));
+                book.setIsbn(resultSet.getString("isbn"));
+                book.setFechaCompra(resultSet.getDate("fechaCompra"));
+                book.setAuthor(resultSet.getString("author"));
+                book.setStatus(resultSet.getString("status"));
+                book.setCoverBookContent(resultSet.getBinaryStream("coverBookContent"));
+                book.setCoverBookSize(resultSet.getDouble("coverBookSize"));
+                book.setCoverBookType(resultSet.getString("coverBookType"));
+                book.setContent(Base64.getEncoder().encodeToString(IOUtils.toByteArray(book.getCoverBookContent())));
+
+                return book;
+            }
         }
         catch (Exception e){
             System.out.println(e.getMessage());
