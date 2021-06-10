@@ -92,4 +92,25 @@ public class BookController extends HttpServlet {
             out.print(message);
         }
     }
+
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        Book book = new Book();
+        book.setIdBook(Integer.parseInt(request.getParameter("idBook")));
+        book.setBookName(request.getParameter("bookName"));
+        book.setIsbn(request.getParameter("bookIsbn"));
+        book.setFechaCompra(Date.valueOf(request.getParameter("bookDate")));
+        book.setAuthor(request.getParameter("bookAuthor"));
+        book.setStatus(request.getParameter("status"));
+        book.setIdOwner(Integer.parseInt(request.getParameter("idOwner")));
+
+        Part cover = request.getPart("imgCover");
+        book.setCoverBookContent(cover.getInputStream());
+        book.setCoverBookSize(cover.getSize());
+        book.setCoverBookType(cover.getContentType());
+
+        BookDao bookDao = new BookDao();
+        bookDao.updateBook(book);
+    }
 }
