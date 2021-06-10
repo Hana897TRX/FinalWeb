@@ -141,20 +141,45 @@ public class UsuarioDao implements IUsuarioDao {
 
     @Override
     public boolean deleteUser(int idUser) {
-        String sql_usuario = "DELETE FROM Users WHERE idUser = ?";
+        String sql_transaction1 = "DELETE FROM bookexchange WHERE idBookOwner = ?";
+        String sql_transaction2 = "DELETE FROM bookexchange WHERE idBookReceiver = ?";
+        String sql_book = "DELETE FROM books WHERE idUser = ?";
+        String sql_user = "DELETE FROM users WHERE idUser = ?";
 
         try {
             Connection conexion = MySQLConnection.getConnection();
-            PreparedStatement preparedStatement = conexion.prepareStatement(sql_usuario);
+            PreparedStatement preparedStatement = conexion.prepareStatement(sql_transaction1);
             preparedStatement.setInt(1, idUser);
 
             int count = 0;
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            //ResultSet resultSet = preparedStatement.executeQuery();
             count = preparedStatement.executeUpdate();
+            System.out.print("Count: " + count);
 
-            if(count > 0){
-                return true;
+            if(count >= 0){
+                preparedStatement = conexion.prepareStatement(sql_transaction2);
+                preparedStatement.setInt(1, idUser);
+                count = preparedStatement.executeUpdate();
+                System.out.print("Count1: " + count);
+
+                if(count >= 0){
+                    preparedStatement = conexion.prepareStatement(sql_book);
+                    preparedStatement.setInt(1, idUser);
+                    count = preparedStatement.executeUpdate();
+                    System.out.print("Count2: " + count);
+
+                    if(count >= 0){
+                        preparedStatement = conexion.prepareStatement(sql_user);
+                        preparedStatement.setInt(1, idUser);
+                        count = preparedStatement.executeUpdate();
+                        System.out.print("Count3: " + count);
+
+                        if(count > 0){
+                            return true;
+                        }
+                    }
+                }
             }
 
         } catch(Exception ex){

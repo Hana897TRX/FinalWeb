@@ -1,6 +1,12 @@
 let load = () => {
     let boton = document.getElementById("btnRegisUser");
     boton.addEventListener("click", regis);
+
+
+    let borrado = document.querySelectorAll(".bi-trash2");
+    borrado.forEach(function (elemento) {
+        elemento.addEventListener("click", borrar);
+    })
 }
 
 let regis = () => {
@@ -48,5 +54,31 @@ let regis = () => {
         )
     }
 }
+
+let borrar = function (event) {
+    let not = new Notyf();
+    let idUser = event.target.getAttribute("data-id");
+    console.log(idUser)
+    let formData = new FormData();
+    formData.append("idUser", idUser);
+
+    if(confirm("Estas seguro de eliminar el registro?")){
+        fetch('usuario', {
+            method: 'DELETE',
+            body: formData
+        }).then(
+            response => response.json()
+        ).then(
+            response => {
+                not.success(response.message);
+            }
+        ).catch(
+            error => console.log(error)
+        )
+    }
+}
+
+
+
 
 document.addEventListener("DOMContentLoaded", load)
