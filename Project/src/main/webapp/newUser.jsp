@@ -49,7 +49,7 @@
                             <input type="text" placeholder="Correo" name="mailUser" id="mailUser"class="form-control input-box"/>
                         </div>
                         <div class="sameRow">
-                            <input type="password" placeholder="Contraseña" name="passwordUser" id="passwordUser"class="form-control input-box"/>
+                            <input type="password" class="passwordModal" placeholder="Contraseña" name="passwordUser" id="passwordUser"class="form-control input-box"/>
                         </div>
                         <!--<div>
                             <input type="password" placeholder="Confirme contraseña" name="reinforcePassword" id="reinforcePassword"/>

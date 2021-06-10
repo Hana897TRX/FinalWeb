@@ -53,7 +53,7 @@
 }
 
 
-input[type=password] {
+.passwordModal {
     background-color: aliceblue;
     border-radius: 6px;
     font-size: 18px;
@@ -61,7 +61,7 @@ input[type=password] {
     margin: 5px 20px;
 }
 
-input[type=password]:focus {
+.passwordModal:focus {
     border-color: #696969;
     border-radius: 2px;
 }
