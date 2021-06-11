@@ -19,54 +19,88 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="css/userBooks.css">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/menu.css">
     <script src="js/userBooks.js"></script>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">Book Exchange</a>
-        <div class="row">
-            <div class="col">
-                <button id="addBook" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Add new book
-                </button>
-                <button type="button" class="btn btn-info">Back</button>
-            </div>
+<div class="d-flex flex-row">
+    <div class="col-sm-2">
+        <div class="title">
+            <img src="assets/img/logo.png" alt="logo" height="65" width="65"/>
+        </div>
+        <div class="sideLeftBanner">
+            <button type="button" class="item">
+                <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
+                <p class="itemText">Usuarios</p>
+            </button>
+            <button type="button" class="selectedItem">
+                <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
+                <p class="itemText">Libros</p>
+            </button>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
+                <p class="itemText">Transacciones</p>
+            </button>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
+                <p class="itemText">Transacciones Globales</p>
+            </button>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
+                <p class="itemText">Cerrar Sesion</p>
+            </button>
         </div>
     </div>
-</nav>
+    <div class="col-sm-10">
+        <nav class="navbar sticky-top navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Book Exchange</a>
+                <div class="row">
+                    <div class="col">
+                        <button id="addBook" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Add new book
+                        </button>
+                        <button type="button" class="btn btn-info">Back</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-<div class="container">
-    <table class="table table-dark">
-        <thead>
-        <tr>
-            <th scope="col">Book title</th>
-            <th scope="col">ISBN</th>
-            <th scope="col">Fecha de compra</th>
-            <th scope="col">Author</th>
-            <th scope="col">Status</th>
-            <th scope="col">Cover book</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${userBooks}" var="book">
-        <tr>
-            <th scope="row">${book.bookName}</th>
-            <td>${book.isbn}</td>
-            <td>${book.fechaCompra}</td>
-            <td>${book.author}</td>
-            <td>${book.status}</td>
-            <td><img src="data:${book.coverBookType};base64,${book.content}" width="100" height="158"></td>
-            <td>
-                <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i data-id="${book.idBook}" class="bi bi-pen"></i></button>
-                <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i data-id="${book.idBook}" class="bi bi-trash2"></i></button>
-            </td>
-        </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">Book title</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Fecha de compra</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Cover book</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${userBooks}" var="book">
+                    <tr>
+                        <th scope="row">${book.bookName}</th>
+                        <td>${book.isbn}</td>
+                        <td>${book.fechaCompra}</td>
+                        <td>${book.author}</td>
+                        <td>${book.status}</td>
+                        <td><img src="data:${book.coverBookType};base64,${book.content}" width="100" height="158"></td>
+                        <td>
+                            <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i data-id="${book.idBook}" class="bi bi-pen"></i></button>
+                            <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i data-id="${book.idBook}" class="bi bi-trash2"></i></button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"

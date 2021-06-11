@@ -65,12 +65,12 @@
                     <div class="col-sm-6">
                         <center>
                             <div class="col-sm-3">
-                                <div class="image-bookCover">
+                                <!--<div class="image-bookCover">
                                     <label for="bookCover">
                                         <img id="imgOwnerCover" src="assets/img/book_cover1.jpg"
                                              class="rounded mx-auto d-block" alt="..." width="125" height="188">
                                     </label>
-                                </div>
+                                </div>-->
                             </div>
                         </center>
                         <div class="input-group mb-3">
@@ -95,10 +95,10 @@
                         <center>
                             <div class="col-sm-3">
                                 <div class="image-bookCover">
-                                    <label for="bookCover">
+                                    <!--<label for="bookCover">
                                         <img id="imgYourBookCover" src="assets/img/book_cover1.jpg"
                                              class="rounded mx-auto d-block" alt="..." width="125" height="188">
-                                    </label>
+                                    </label>-->
                                 </div>
                             </div>
                         </center>
