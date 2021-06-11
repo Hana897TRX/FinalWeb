@@ -43,7 +43,7 @@ let regis = () => {
         ).then(
             response => {
                 console.log(response)
-                if(response.idUser == 0 || response.idUser == undefined)
+                if(response.mensaje == 0 || response.idUser == undefined)
                     if(response.mensaje != undefined)
                         not.error("El registro no se añadió correctamente");
                     else

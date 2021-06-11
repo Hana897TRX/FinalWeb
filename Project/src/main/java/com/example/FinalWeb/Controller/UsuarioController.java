@@ -119,9 +119,10 @@ public class UsuarioController extends HttpServlet {
         boolean resultado = usuarioDao.updateUser(user);
 
         String mensaje = "";
+        Gson gson = new Gson();
 
         if(resultado){
-            mensaje = "{'mensaje': 'El registro se actualizo'}";
+            mensaje = gson.toJson(user);
         }else{
             mensaje = "{'mensaje': 'El registro no se actualizo correctamente'}";
         }
