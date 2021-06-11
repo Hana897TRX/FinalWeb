@@ -11,6 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "books", value = "/books")
@@ -20,9 +21,9 @@ public class BookController extends HttpServlet {
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idBook = Integer.parseInt(request.getParameter("idBook"));
 
-        if(idBook != 0){
-           BookDao bookDao = new BookDao();
-           bookDao.deteteBook(idBook);
+        if (idBook != 0) {
+            BookDao bookDao = new BookDao();
+            bookDao.deteteBook(idBook);
         }
     }
 
@@ -30,41 +31,42 @@ public class BookController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String message = "";
 
-        if(request.getParameter("action") == "GET_BOOKS"){
-            BookDao bookDao = new BookDao();
-            List<Book> bookList = bookDao.getBooks();
-            System.out.println(bookList);
-            request.setAttribute("books", bookList);
-            request.getRequestDispatcher("/index.jsp").forward(request,response);
+        int idUser = 0;
+        try {
+            idUser = Integer.parseInt(request.getParameter("idUser"));
+        } catch (Exception e) {
+            idUser = 1;
         }
-        else {//if (request.getParameter("action") == "GET_USER_BOOKS"){
-            int idUser = 0;
-            try {
-                idUser = Integer.parseInt(request.getParameter("idUser"));
-            }
-            catch (Exception e){
-                idUser = 1;
-            }
 
-            BookDao bookDao = new BookDao();
-            List<Book> bookList = bookDao.getBooks(idUser);
-            //System.out.println(bookList);
-            request.setAttribute("userBooks", bookList);
-            request.getRequestDispatcher("/userBooks.jsp").forward(request,response);
-        }
+        BookDao bookDao = new BookDao();
+        List<Book> bookList = bookDao.getBooks(idUser);
+        //System.out.println(bookList);
+        request.setAttribute("userBooks", bookList);
+        request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getParameter("idBook") != null){
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        System.out.println(request.getParameter("action"));
+        if (request.getParameter("idBook") != null) {
             int bookid = Integer.parseInt(request.getParameter("idBook"));
 
             Book book;
             BookDao bookDao = new BookDao();
             book = bookDao.getBook(bookid);
-            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
             String message = gson.toJson(book);
+
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(message);
+        }
+        else if(request.getParameter("action").equals("GET_TOP5")){
+            BookDao bookDao = new BookDao();
+            List<Book> bookList = new ArrayList<>();
+            bookList = bookDao.getTop5Books();
+            String message = gson.toJson(bookList);
 
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();

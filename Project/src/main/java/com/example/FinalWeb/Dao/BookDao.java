@@ -158,6 +158,45 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
     }
 
     @Override
+    public List<Book> getTop5Books() {
+        Connection connection = MySQLConnection.getConnection();
+        String sql = "SELECT * FROM Books ORDER BY RAND() LIMIT 5";
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Book> bookList = new ArrayList<>();
+            Book book;
+
+            while(resultSet.next()){
+                book = new Book();
+                book.setIdBook(resultSet.getInt("idBook"));
+                book.setIdOwner(resultSet.getInt("idUser"));
+                book.setBookName(resultSet.getString("bookName"));
+                book.setIsbn(resultSet.getString("isbn"));
+                book.setFechaCompra(resultSet.getDate("fechaCompra"));
+                book.setAuthor(resultSet.getString("author"));
+                book.setStatus(resultSet.getString("status"));
+                book.setCoverBookContent(resultSet.getBinaryStream("coverBookContent"));
+                book.setCoverBookSize(resultSet.getDouble("coverBookSize"));
+                book.setCoverBookType(resultSet.getString("coverBookType"));
+                //book.setContent(Base64.getEncoder().encode(book.getCoverBookContent()));
+                book.setContent(Base64.getEncoder().encodeToString(IOUtils.toByteArray(book.getCoverBookContent())));
+
+                bookList.add(book);
+            }
+
+            return bookList;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return null;
+    }
+
+    @Override
     public boolean newBook(Book book) {
         Connection connection = MySQLConnection.getConnection();
         String sql = "INSERT INTO Books(bookName, isbn, fechaCompra, author, status, coverBookContent, coverBookSize, coverBookType, idUser) VALUES(?,?,?,?,?,?,?,?,?)";

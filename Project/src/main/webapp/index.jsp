@@ -38,178 +38,21 @@
     </div>
 </nav>
 
-<!--For you-->
-<p class="text-capitalize for-you">Viewed</p>
-<div class="d-flex flex-row">
-    <div class="card" style="width: 18rem; background-color: #cec6ff;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem; background-color: #b1e3fe;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem; background-color: #ffced1;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem; background-color: #cec6ff;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--Top 5-->
+<p class="text-capitalize for-you">Top 5</p>
+<div class="d-flex flex-row" id="viewedSection"></div>
 
 <div class="d-flex flex-row more-container">
     <div class="col">
         <!-- More -->
         <p class="text-capitalize for-you" style="margin-left: 28px;">More</p>
     </div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col">
-        <!-- Authors -->
-        <p class="text-capitalize for-you" style="margin-left: 24px;">Popular traders</p>
-    </div>
-    <div class="col"></div>
 </div>
 
 <!-- More section -->
 <div class="d-flex flex-row">
     <div class="col col-lg-2">
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row" id="moreSection">
 
             <div class="d-flex flex-row">
                 <div class="card" style="width: 18rem; background-color: white;">
