@@ -59,7 +59,7 @@
                 <td class="table-info">${user.email}</td>
                 <td class="table-info">${user.userType}</td>
                 <td class="table-info">
-                    <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                    <button class="btn btn-primary me-md-2 btn-edit" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#editModal"></i></button>
                     <button class="btn btn-danger" type="button" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-trash2"></i></button>
                 </td>
             </tr>
@@ -106,6 +106,48 @@
                     <input type="button" value="Cancelar" id="btnBack" class="btn-outline-blue" data-bs-dismiss="modal">
                     <!--</a>-->
                     <input type="button" value="Registrar" id="btnRegisUser" class="btn-outline-purple">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="editModalLabel">Editar Usuario</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-md-center">
+                    <form action="" method="" id="formularioEdit">
+                        <div class="sameRow">
+                            <input type="text" placeholder="Nombre(s)" name="nameUser" class="form-control" id="nameUserEdit" class="form-control input-box"/>
+                        </div>
+                        <div class="sameRow">
+                            <input type="date" name="dateUser" id="dateUserEdit" class="form-control"/>
+                        </div>
+                        <div class="sameRow">
+                            <input type="text" placeholder="Apellido(s)" name="surnameUser" id="surnameUserEdit"class="form-control input-box"/>
+                        </div>
+                        <div class="sameRow">
+                            <input type="text" placeholder="Correo" name="mailUser" id="mailUserEdit"class="form-control input-box"/>
+                        </div>
+                        <div class="sameRow">
+                            <input type="text" placeholder="Tipo de Usuario" name="userType" id="userType" class="form-control input-box"/>
+                        </div>
+                        <input id="idUser" type="hidden">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <!--<a href="">-->
+                    <input type="button" value="Cancelar" id="btnBackEdit" class="btn-outline-blue" data-bs-dismiss="modal">
+                    <!--</a>-->
+                    <input type="button" value="Actualizar" id="btnEditUser" class="btn-outline-purple">
                 </div>
             </div>
         </div>

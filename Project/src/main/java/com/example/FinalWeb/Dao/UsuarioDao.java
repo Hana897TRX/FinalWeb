@@ -45,7 +45,7 @@ public class UsuarioDao implements IUsuarioDao {
 
     @Override
     public Usuario getUser(int idUser) {
-        String sql = "SELECT idUser, name, lastName, birthday, email, password, userType FROM Users" +
+        String sql = "SELECT idUser, name, lastName, birthday, email, userType FROM Users" +
                 " WHERE idUser = ?";
 
         try{
@@ -63,7 +63,6 @@ public class UsuarioDao implements IUsuarioDao {
                 user.setLastName(resultSet.getString("lastName"));
                 user.setBirthday(resultSet.getDate("birthday"));
                 user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
                 user.setUserType(resultSet.getInt("userType"));
 
                 return user;
@@ -190,7 +189,7 @@ public class UsuarioDao implements IUsuarioDao {
 
     @Override
     public boolean updateUser(Usuario usuario) {
-        String sql_usuario = "UPDATE Users SET name = ?, lastName = ?, birthday = ?, email = ?, password=SHA2(?,224), userType = ? WHERE idUser = ?";
+        String sql_usuario = "UPDATE Users SET name = ?, lastName = ?, birthday = ?, email = ?, userType = ? WHERE idUser = ?";
         System.out.println(usuario);
         int count = 0;
         try {
@@ -200,8 +199,8 @@ public class UsuarioDao implements IUsuarioDao {
             preparedStatement.setString(2,usuario.getLastName());
             preparedStatement.setDate(3,usuario.getBirthday());
             preparedStatement.setString(4,usuario.getEmail());
-            preparedStatement.setString(5,usuario.getPassword());
-            preparedStatement.setInt(6, usuario.getUserType());
+            preparedStatement.setInt(5, usuario.getUserType());
+            preparedStatement.setInt(6, usuario.getIdUser());
             count = preparedStatement.executeUpdate();
 
             if(count > 0)

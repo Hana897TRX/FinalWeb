@@ -1,10 +1,10 @@
 function ready(){
     changeImgOnSelected();
 
-    document.getElementById("newBookR").addEventListener("click", upload);
+    document.getElementById("newBookR").addEventListener("click", uploadAndSave);
     document.getElementById("addBook").addEventListener("click", clear)
 
-    update();
+    getModalData();
     deleteBook();
 }
 
@@ -13,7 +13,7 @@ function clear(){
     document.getElementById("formulario").reset();
 }
 
-function update() {
+function getModalData() {
 
     let editBtns = document.querySelectorAll(".btn-edit");
 
@@ -35,8 +35,9 @@ function update() {
             )
             .then(
                 response => {
-                    console.log(response)
-                    console.log(new Date(response.fechaCompra).toISOString())
+                    console.log(response);
+                    console.log(new Date(response.fechaCompra).toISOString());
+
                     document.getElementById("bookName").value = response.bookName;
                     document.getElementById("bookIsbn").value = response.isbn;
                     document.getElementById("bookDate").value = response.fechaCompra;
@@ -57,7 +58,7 @@ function update() {
     })
 }
 
-function upload(){
+function uploadAndSave(){
     let not = new Notyf();
     let bookName = document.getElementById("bookName").value;
     let bookIsbn = document.getElementById("bookIsbn").value;// bookIsbn
