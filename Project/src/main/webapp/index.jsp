@@ -75,20 +75,21 @@
                         </center>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Book title</span>
-                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                            <input id="bookTitleOwner" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Book author</span>
-                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                            <input id="bookAuthorOwner" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Book buy date</span>
-                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                            <input id="bookBuyDateOwner" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Book status</span>
-                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                            <input id="bookStatusOwner" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
+                        <input id="idOwner" type="hidden">
                     </div>
                     <div class="col-sm-6">
                         <center>
@@ -103,20 +104,17 @@
                         </center>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Your books</span>
-                            <select id="bookStatus" class="form-select" aria-label="Default select example">
+                            <select id="userBooks" class="form-select" aria-label="Default select example">
                                 <option selected>Choose one</option>
-                                <option value="New">Alicia</option>
-                                <option value="Like new">The world of darkness</option>
-                                <option value="Good">Goodroots</option>
                             </select>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Book title</span>
-                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                            <input id="bookTitleUser" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text col-sm-4">Book status</span>
-                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                            <input id="bookStatusUser" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
                     </div>
                 </div>

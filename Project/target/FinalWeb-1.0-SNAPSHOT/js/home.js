@@ -1,6 +1,33 @@
 function ready() {
     getTop5();
-    btnShowModalTransaction();
+    getUserBooks();
+    document.getElementById("userBooks").addEventListener("change", changeUserBookData);
+}
+
+function getUserBooks(){
+    console.log("H1")
+    let formData = new FormData();
+    formData.append('idUser', 1);
+
+    fetch('books', {
+        method: 'POST',
+        body :formData,
+    })
+        .then(
+            response => response.json()
+        )
+        .then(
+            response => {
+                console.log('userBooks' + response)
+                let selector = document.getElementById("userBooks");
+                for(let i = 0; i < response.length; i++){
+                    let option = document.createElement("option");
+                    option.setAttribute("value", response[i].idBook);
+                    option.textContent = response[i].bookName;
+                    selector.append(option);
+                }
+            }
+        )
 }
 
 function getTop5() {
@@ -213,16 +240,47 @@ function btnShowModalTransaction(event) {
     if (idBook === "")
         return;
 
+    let formData = new FormData();
+    console.log(idBook)
+    formData.append('idBook', idBook);
+
     fetch('books', {
         method: 'POST',
-        body: {'idBook': idBook}
+        body: formData
     })
         .then(
             response => response.json()
         )
         .then(response => {
-            console.log(response)
+            document.getElementById("bookTitleOwner").value = response.bookName;
+            document.getElementById("bookAuthorOwner").value = response.author;
+            document.getElementById("bookBuyDateOwner").value = response.fechaCompra
+            document.getElementById("bookStatusOwner").value  = response.status;
+            document.getElementById("imgOwnerCover").setAttribute("src", "data:" + response.coverBookType + ";base64," + response.content);
+            document.getElementById("idOwner").value = response.idOwner;
         })
+}
+
+function changeUserBookData(event){
+    let idBook = event.currentTarget.value;
+
+    let formData = new FormData();
+    formData.append('idBook', idBook);
+
+    fetch('books', {
+        method : 'POST',
+        body : formData
+    })
+        .then(
+            response => response.json()
+        )
+        .then(
+            response => {
+                document.getElementById("imgYourBookCover").setAttribute("src", "data:" + response.coverBookType + ";base64," + response.content);
+                document.getElementById("bookTitleUser").value = response.bookName;
+                document.getElementById("bookStatusUser").value = response.status;
+            }
+        )
 }
 
 document.addEventListener("DOMContentLoaded", ready);
