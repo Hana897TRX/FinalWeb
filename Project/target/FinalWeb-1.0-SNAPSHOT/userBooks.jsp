@@ -30,29 +30,26 @@
             <img src="assets/img/logo.png" alt="logo" height="65" width="65"/>
         </div>
         <div class="sideLeftBanner">
-            <div class="sideLeftBanner">
-                <div class="item">
-                    <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
-                    <p class="itemText">Usuarios</p>
-                </div>
-                <div class="selectedItem">
-                    <!--<span class="selectedItem">h</span>-->
-                    <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
-                    <p class="itemText">Libros</p>
-                </div>
-                <div class="item">
-                    <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
-                    <p class="itemText">Transacciones</p>
-                </div>
-                <div class="item">
-                    <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
-                    <p class="itemText">Transacciones Globales</p>
-                </div>
-                <div class="item">
-                    <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
-                    <p class="itemText">Cerrar Sesion</p>
-                </div>
-            </div>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
+                <p class="itemText">Usuarios</p>
+            </button>
+            <button type="button" class="selectedItem">
+                <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
+                <p class="itemText">Libros</p>
+            </button>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
+                <p class="itemText">Transacciones</p>
+            </button>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
+                <p class="itemText">Transacciones Globales</p>
+            </button>
+            <button type="button" class="item">
+                <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
+                <p class="itemText">Cerrar Sesion</p>
+            </button>
         </div>
     </div>
     <div class="col-sm-10">
