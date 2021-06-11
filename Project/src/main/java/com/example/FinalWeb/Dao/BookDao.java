@@ -40,6 +40,8 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
                 book.setCoverBookSize(resultSet.getDouble("coverBookSize"));
                 book.setCoverBookType(resultSet.getString("coverBookType"));
 
+                book.setContent(Base64.getEncoder().encodeToString(IOUtils.toByteArray(book.getCoverBookContent())));
+
                 bookList.add(book);
             }
 

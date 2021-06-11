@@ -72,6 +72,16 @@ public class BookController extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.print(message);
         }
+        else if (request.getParameter("action").equals("GET_MOREBOOKSECTION")){
+            BookDao bookDao = new BookDao();
+            List<Book> bookList = new ArrayList<>();
+            bookList = bookDao.getBooks();
+            String message = gson.toJson(bookList);
+
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(message);
+        }
         else {
 
             Book book = new Book();
