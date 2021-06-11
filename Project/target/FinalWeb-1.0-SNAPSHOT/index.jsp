@@ -38,310 +38,92 @@
     </div>
 </nav>
 
-<!--For you-->
-<p class="text-capitalize for-you">Viewed</p>
-<div class="d-flex flex-row">
-    <div class="card" style="width: 18rem; background-color: #cec6ff;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem; background-color: #b1e3fe;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem; background-color: #ffced1;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem; background-color: #cec6ff;">
-        <div class="card-body">
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                    </div>
-                    <div class="col">
-                        <div class="book-title">
-                            The king of drugs.
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                            <div class="col">
-                                <i class="bi bi-star-fill white-icon"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--Top 5-->
+<p class="text-capitalize for-you">Top 5</p>
+<div class="d-flex flex-row" id="viewedSection"></div>
 
 <div class="d-flex flex-row more-container">
     <div class="col">
         <!-- More -->
         <p class="text-capitalize for-you" style="margin-left: 28px;">More</p>
     </div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col">
-        <!-- Authors -->
-        <p class="text-capitalize for-you" style="margin-left: 24px;">Popular traders</p>
-    </div>
-    <div class="col"></div>
 </div>
 
 <!-- More section -->
-<div class="d-flex flex-row">
-    <div class="col col-lg-2">
-        <div class="d-flex flex-row">
+<div class="d-flex flex-row" id="moreSection"></div>
 
-            <div class="d-flex flex-row">
-                <div class="card" style="width: 18rem; background-color: white;">
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="row align-items-start">
-                                <div class="col">
-                                    <img class="book-cover" src="assets/img/book_cover1.jpg">
-                                </div>
-                                <div class="col">
-                                    <div class="book-title" style="color: black;">
-                                        The king of drugs.
-                                    </div>
-
-                                    <div class="book-author-browse">
-                                        Nintendo.
-                                    </div>
-                                    <div class="d-flex flex-row">
-                                        <div class="col">
-                                            <i class="bi bi-star-fill"></i>
-                                        </div>
-                                        <div class="col">
-                                            <i class="bi bi-star-fill"></i>
-                                        </div>
-                                        <div class="col">
-                                            <i class="bi bi-star-fill"></i>
-                                        </div>
-                                        <div class="col">
-                                            <i class="bi bi-star-fill"></i>
-                                        </div>
-                                        <div class="col">
-                                            <i class="bi bi-star-fill"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                                        <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                                    </div>
-
+<!-- Modal -->
+<div class="modal fade" id="modalCore" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Intercambiar libro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <center>
+                            <div class="col-sm-3">
+                                <div class="image-bookCover">
+                                    <label for="bookCover">
+                                        <img id="imgOwnerCover" src="assets/img/book_cover1.jpg"
+                                             class="rounded mx-auto d-block" alt="..." width="125" height="188">
+                                    </label>
                                 </div>
                             </div>
+                        </center>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Book title</span>
+                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Book author</span>
+                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Book buy date</span>
+                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Book status</span>
+                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <center>
+                            <div class="col-sm-3">
+                                <div class="image-bookCover">
+                                    <label for="bookCover">
+                                        <img id="imgYourBookCover" src="assets/img/book_cover1.jpg"
+                                             class="rounded mx-auto d-block" alt="..." width="125" height="188">
+                                    </label>
+                                </div>
+                            </div>
+                        </center>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Your books</span>
+                            <select id="bookStatus" class="form-select" aria-label="Default select example">
+                                <option selected>Choose one</option>
+                                <option value="New">Alicia</option>
+                                <option value="Like new">The world of darkness</option>
+                                <option value="Good">Goodroots</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Book title</span>
+                            <input type="text" aria-label="Last name" class="form-control" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-sm-4">Book status</span>
+                            <input type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
                     </div>
                 </div>
-
-                <div class="d-flex flex-row">
-                    <div class="card" style="width: 18rem; background-color: white;">
-                        <div class="card-body">
-                            <div class="container">
-                                <div class="row align-items-start">
-                                    <div class="col">
-                                        <img class="book-cover" src="assets/img/book_cover1.jpg">
-                                    </div>
-                                    <div class="col">
-                                        <div class="book-title" style="color: black;">
-                                            The king of drugs.
-                                        </div>
-
-                                        <div class="book-author-browse">
-                                            Nintendo.
-                                        </div>
-                                        <div class="d-flex flex-row">
-                                            <div class="col">
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <div class="col">
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <div class="col">
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <div class="col">
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <div class="col">
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                                            <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row">
-                        <div class="card" style="width: 18rem; background-color: white;">
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            <img class="book-cover" src="assets/img/book_cover1.jpg">
-                                        </div>
-                                        <div class="col">
-                                            <div class="book-title" style="color: black;">
-                                                The king of drugs.
-                                            </div>
-
-                                            <div class="book-author-browse">
-                                                Nintendo.
-                                            </div>
-                                            <div class="d-flex flex-row">
-                                                <div class="col">
-                                                    <i class="bi bi-star-fill"></i>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="bi bi-star-fill"></i>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="bi bi-star-fill"></i>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="bi bi-star-fill"></i>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="bi bi-star-fill"></i>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <img style="width: 30px; height: 25px;" src="assets/img/profile.png">
-                                                <img style="width: 30px; height: 25px;" src="assets/img/profile2.png">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Intercambiar</button>
             </div>
         </div>
     </div>
