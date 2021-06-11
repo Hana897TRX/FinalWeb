@@ -22,6 +22,7 @@
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link rel="stylesheet" href="css/menu.css">
     <script src="js/userBooks.js"></script>
+    <link rel="stylesheet" href="css/transactions.css">
 </head>
 <body>
 <div class="d-flex flex-row">
@@ -67,35 +68,52 @@
             </div>
         </nav>
 
-        <div class="container">
-            <table class="table table-dark">
-                <thead>
-                <tr>
-                    <th scope="col">Book title</th>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Fecha de compra</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Cover book</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${userBooks}" var="book">
+        <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
+            <div class="input-group">
+                <span class="input-group-text" style="background-color: white; border: white;"><i class="bi bi-search"></i></span>
+                <input type="email" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search an user" style="border-color: rgba(0, 0, 0, 0);">
+            </div>
+        </div>
+        <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
+
+            <table>
+                <div class="container">
                     <tr>
-                        <th scope="row">${book.bookName}</th>
-                        <td>${book.isbn}</td>
-                        <td>${book.fechaCompra}</td>
-                        <td>${book.author}</td>
-                        <td>${book.status}</td>
-                        <td><img src="data:${book.coverBookType};base64,${book.content}" width="100" height="158"></td>
-                        <td>
-                            <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i data-id="${book.idBook}" class="bi bi-pen"></i></button>
-                            <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i data-id="${book.idBook}" class="bi bi-trash2"></i></button>
-                        </td>
+                        <th class="col">Book title</th>
+                        <th class="col">ISBN</th>
+                        <th class="col">Fecha de compra</th>
+                        <th class="col">Author</th>
+                        <th class="col">Status</th>
+                        <th class="col">Cover book</th>
+                        <th class="col">Acciones</th>
                     </tr>
-                </c:forEach>
-                </tbody>
+                    <c:forEach items="${userBooks}" var="book">
+                        <tr>
+                            <th scope="row">${book.bookName}</th>
+                            <td>${book.isbn}</td>
+                            <td>${book.fechaCompra}</td>
+                            <td>${book.author}</td>
+                            <td>${book.status}</td>
+                            <td><img src="data:${book.coverBookType};base64,${book.content}" width="100" height="158"></td>
+                            <td>
+                                <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${book.idBook}" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i data-id="${book.idBook}" class="bi bi-pen"></i></button>
+                                <button class="btn btn-danger" type="button" data-id="${book.idBook}"><i data-id="${book.idBook}" class="bi bi-trash2"></i></button>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                        <!--<td class="col">1</td>
+                        <td class="col"> Hana </td>
+                        <td class="col"> Fernanda </td>
+                        <td class="col"> 2000-11-09 </td>
+                        <td class="col"> hana@hana.com </td>
+                        <td class="col"> 2 </td>
+                        <td class="col">
+                            <button class="btn btn-primary me-md-2 btn-edit" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#editModal"></i></button>
+                            <button class="btn btn-danger" type="button" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-trash2"></i></button>
+                        </td>-->
+
+                </div>
             </table>
         </div>
     </div>

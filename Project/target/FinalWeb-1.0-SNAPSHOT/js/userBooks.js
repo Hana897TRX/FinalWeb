@@ -2,7 +2,8 @@ function ready(){
     changeImgOnSelected();
 
     document.getElementById("newBookR").addEventListener("click", uploadAndSave);
-    document.getElementById("addBook").addEventListener("click", clear)
+    document.getElementById("addBook").addEventListener("click", clear);
+    document.getElementById("search").addEventListener("change", search);
 
     getModalData();
     deleteBook();
@@ -160,6 +161,10 @@ function deleteBook(){
     btnDelete.forEach(function (element) {
         element.addEventListener("click", deleteX)
     })
+}
+
+function search(event){
+    find(event.currentTarget.value);
 }
 
 document.addEventListener("DOMContentLoaded", ready);
