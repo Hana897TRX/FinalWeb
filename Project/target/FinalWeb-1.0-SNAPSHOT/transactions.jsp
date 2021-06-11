@@ -14,32 +14,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transacciones</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/transactions.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th>#Transaccion</th>
-        <th>Usuario Dueño</th>
-        <th>Nuevo dueño</th>
-        <th>Identificador libro</th>
-        <th>Fecha de intercambio</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${bookExchangeList}" var="exchange">
-        <tr>
-            <td>${exchange.idExchange}</td>
-            <td>${exchange.idBookOwner}</td>
-            <td>${exchange.idBookReceiver}</td>
-            <td>${exchange.idBook}</td>
-            <td>${exchange.exchangeDate}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+    <div class="d-flex flex-row">
+        <div class="col-sm-2">
+            <div class="title">
+                <img src="assets/img/logo.png" alt="logo" height="65" width="65"/>
+            </div>
+            <div class="sideLeftBanner">
+                <div class="sideLeftBanner">
+                    <div class="item">
+                        <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
+                        <p class="itemText">Usuarios</p>
+                    </div>
+                    <div class="item">
+                        <!--<span class="selectedItem">h</span>-->
+                        <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
+                        <p class="itemText">Libros</p>
+                    </div>
+                    <div class="item">
+                        <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
+                        <p class="itemText">Transacciones</p>
+                    </div>
+                    <div class="selectedItem">
+                        <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
+                        <p class="itemText">Transacciones Globales</p>
+                    </div>
+                    <div class="item">
+                        <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
+                        <p class="itemText">Cerrar Sesion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <table>
+                <thead>
+                <tr>
+                    <th>#Transaccion</th>
+                    <th>Usuario Dueño</th>
+                    <th>Nuevo dueño</th>
+                    <th>Identificador libro</th>
+                    <th>Fecha de intercambio</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${bookExchangeList}" var="exchange">
+                    <tr>
+                        <td>${exchange.idExchange}</td>
+                        <td>${exchange.idBookOwner}</td>
+                        <td>${exchange.idBookReceiver}</td>
+                        <td>${exchange.idBook}</td>
+                        <td>${exchange.exchangeDate}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
