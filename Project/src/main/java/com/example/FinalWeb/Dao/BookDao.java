@@ -181,4 +181,24 @@ public class BookDao implements com.example.FinalWeb.Dao.iBookDao {
         }
         return false;
     }
+
+    @Override
+    public boolean deteteBook(int idBook) {
+        String sql = "DELETE FROM Books Where idBook = ?";
+        Connection connection = MySQLConnection.getConnection();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, idBook);
+
+            preparedStatement.executeUpdate();
+
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return false;
+    }
 }

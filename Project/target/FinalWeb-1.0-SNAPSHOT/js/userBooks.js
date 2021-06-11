@@ -5,6 +5,7 @@ function ready(){
     document.getElementById("addBook").addEventListener("click", clear)
 
     update();
+    deleteBook();
 }
 
 function clear(){
@@ -138,6 +139,26 @@ function changeImgOnSelected(){
             imgPreview.setAttribute("src", URL.createObjectURL(file));
         }
     }
+}
+
+function deleteBook(){
+    let btnDelete = document.querySelectorAll(".btn-danger");
+
+    let deleteX = function(event){
+        let idBook = event.target.getAttribute("data-id");
+
+        let formData = new FormData();
+        formData.append('idBook', idBook);
+
+        fetch('books', {
+            method: 'DELETE',
+            body : formData
+        })
+    }
+
+    btnDelete.forEach(function (element) {
+        element.addEventListener("click", deleteX)
+    })
 }
 
 document.addEventListener("DOMContentLoaded", ready);

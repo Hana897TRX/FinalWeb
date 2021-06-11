@@ -10,4 +10,5 @@ public interface iBookDao {
     boolean updateBook(Book book);
     Book getBook(int idBook);
     boolean newBook(Book book);
+    boolean deteteBook(int idBook);
 }

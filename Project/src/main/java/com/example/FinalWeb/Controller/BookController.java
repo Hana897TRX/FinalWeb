@@ -17,6 +17,16 @@ import java.util.List;
 @MultipartConfig
 public class BookController extends HttpServlet {
     @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idBook = Integer.parseInt(request.getParameter("idBook"));
+
+        if(idBook != 0){
+           BookDao bookDao = new BookDao();
+           bookDao.deteteBook(idBook);
+        }
+    }
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String message = "";
 

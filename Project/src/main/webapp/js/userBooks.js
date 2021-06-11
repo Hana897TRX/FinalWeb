@@ -1,10 +1,11 @@
 function ready(){
     changeImgOnSelected();
 
-    document.getElementById("newBookR").addEventListener("click", upload);
+    document.getElementById("newBookR").addEventListener("click", uploadAndSave);
     document.getElementById("addBook").addEventListener("click", clear)
 
-    update();
+    getModalData();
+    deleteBook();
 }
 
 function clear(){
@@ -12,7 +13,7 @@ function clear(){
     document.getElementById("formulario").reset();
 }
 
-function update() {
+function getModalData() {
 
     let editBtns = document.querySelectorAll(".btn-edit");
 
@@ -34,8 +35,9 @@ function update() {
             )
             .then(
                 response => {
-                    console.log(response)
-                    console.log(new Date(response.fechaCompra).toISOString())
+                    console.log(response);
+                    console.log(new Date(response.fechaCompra).toISOString());
+
                     document.getElementById("bookName").value = response.bookName;
                     document.getElementById("bookIsbn").value = response.isbn;
                     document.getElementById("bookDate").value = response.fechaCompra;
@@ -56,7 +58,7 @@ function update() {
     })
 }
 
-function upload(){
+function uploadAndSave(){
     let not = new Notyf();
     let bookName = document.getElementById("bookName").value;
     let bookIsbn = document.getElementById("bookIsbn").value;// bookIsbn
@@ -138,6 +140,26 @@ function changeImgOnSelected(){
             imgPreview.setAttribute("src", URL.createObjectURL(file));
         }
     }
+}
+
+function deleteBook(){
+    let btnDelete = document.querySelectorAll(".btn-danger");
+
+    let deleteX = function(event){
+        let idBook = event.target.getAttribute("data-id");
+
+        let formData = new FormData();
+        formData.append('idBook', idBook);
+
+        fetch('books', {
+            method: 'DELETE',
+            body : formData
+        })
+    }
+
+    btnDelete.forEach(function (element) {
+        element.addEventListener("click", deleteX)
+    })
 }
 
 document.addEventListener("DOMContentLoaded", ready);
