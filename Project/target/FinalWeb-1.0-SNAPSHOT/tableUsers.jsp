@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="css/tableUsers.css">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="js/tableUsers.js"></script>
 </head>
 <body>
@@ -60,8 +59,8 @@
                 <td class="table-info">${user.email}</td>
                 <td class="table-info">${user.userType}</td>
                 <td class="table-info">
-                    <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${user.idUser}"><i class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
-                    <button class="btn btn-danger" type="button" data-id="${user.idUser}"><i class="bi bi-trash2"></i></button>
+                    <button class="btn btn-primary me-md-2 btn-edit" type="button" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-pen" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                    <button class="btn btn-danger" type="button" data-id="${user.idUser}"><i data-id="${user.idUser}" class="bi bi-trash2"></i></button>
                 </td>
             </tr>
         </c:forEach>

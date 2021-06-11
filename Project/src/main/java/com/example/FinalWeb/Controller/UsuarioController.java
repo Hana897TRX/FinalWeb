@@ -88,7 +88,25 @@ public class UsuarioController extends HttpServlet {
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Got to Delete");
+        int id = request.getParameter("idUser") == "" ? 0 : Integer.parseInt(request.getParameter("idUser"));
+        //condicion ? verdadera : falsa
+        System.out.println("Got: " + id);
+
+        UsuarioDao usuarioDao = new UsuarioDao();
+        boolean resultado = usuarioDao.deleteUser(id);
+
+        String mensaje = "";
+
+        if(resultado){
+            mensaje = "{\"mensaje\": \"El registro se elimino correctamente\"}";;
+        }else{
+            mensaje = "{\"mensaje\": \"El registro no se borro\"}";
+        }
+
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        out.print(mensaje);
     }
 }
