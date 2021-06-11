@@ -1,0 +1,13 @@
+table { font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px; margin: 0 auto; width: max-content; text-align: left; border-collapse: collapse;}
+
+th {background-color: #8e7dfd; font-weight: normal; padding: 8px;
+    border-top: 4px solid "aabcfe"; border-bottom: 1px solid #fff; color: #039;}
+
+td { padding: 8px; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+
+table tr:nth-child(odd){background-color: white;}
+
+table tr:nth-child(even){background-color: #cec6ff;}
+
+tr:hover td {background: #d0dafd; color: #339;}
