@@ -55,6 +55,9 @@
                             <div class="mt-4 text-center">
                                 ¿Nuevo usuario? <a href="register.html" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear cuenta</a>
                             </div>
+                            <div class="mt-4 text-center">
+                                <a href="Tutorial.html" data-bs-toggle="modal" data-bs-target="#Modal2">Tutorial</a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -63,7 +66,7 @@
     </div>
 </section>
 
-<!-- Modal -->
+<!-- Modal Registrar usuario-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -106,5 +109,122 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Tutorial (#Modal2) -->
+<div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="ModalLabel2">Tutorial</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <body class="my-login-page">
+            <section class="h-100">
+                <div class="container h-100">
+                    <div class="card fat">
+                        <div>
+                            <div class="form-group">
+                                <h4>Tip1</h4>
+                                <img src="assets/img/logo.png" alt="logo" height="150" width="150"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </body>
+            <div class="modal-footer">
+                <div>
+                    <!--</a>-->
+                    <input type="button" value="Siguiente" id="btnNext1" class="btn-outline-purple" data-bs-toggle="modal" data-bs-target="#Modal3" data-bs-dismiss="modal">
+                    <!--<a href="">-->
+                    <input type="button" value="Cancelar" id="btnCerrar1" class="btn-outline-blue" data-bs-dismiss="modal">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tutorial2 (#Modal3) -->
+<div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="ModalLabel3">Tutorial</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <body class="my-login-page">
+            <section class="h-100">
+                <div class="container h-100">
+                    <div class="card fat">
+                        <div>
+                            <div class="form-group">
+                                <h4>Tip2</h4>
+                                <img src="assets/img/logo.png" alt="logo" height="150" width="150"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </body>
+            <div class="modal-footer">
+                <div>
+                    <!--</a>-->
+                    <input type="button" value="Anterior" id="btnPrevious2" class="btn-outline-purple" data-bs-toggle="modal" data-bs-target="#Modal2" data-bs-dismiss="modal">
+                    <!--</a>-->
+                    <input type="button" value="Siguiente" id="btnNext2" class="btn-outline-purple" data-bs-toggle="modal" data-bs-target="#Modal4" data-bs-dismiss="modal">
+                    <!--<a href="">-->
+                    <input type="button" value="Cancelar" id="btnCerrar2" class="btn-outline-blue" data-bs-dismiss="modal">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tutorial3 (#Modal4) -->
+<div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="ModalLabel4">Tutorial</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <body class="my-login-page">
+            <section class="h-100">
+                <div class="container h-100">
+                    <div class="card fat">
+                        <div>
+                            <div class="form-group">
+                                <h4>Tip3</h4>
+                                <img src="assets/img/logo.png" alt="logo" height="150" width="150"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </body>
+            <div class="modal-footer">
+                <div>
+                    <!--</a>-->
+                    <input type="button" value="Anterior" id="btnPrevious3" class="btn-outline-purple" data-bs-toggle="modal" data-bs-target="#Modal3" data-bs-dismiss="modal">
+                    <!--<a href="">-->
+                    <input type="button" value="Cancelar" id="btnCerrar3" class="btn-outline-blue" data-bs-dismiss="modal">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
