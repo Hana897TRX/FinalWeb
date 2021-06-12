@@ -13,6 +13,49 @@ let load = () => {
     botonE.addEventListener("click", update);
 
     document.getElementById("search").addEventListener("change", search);
+
+    let btnGB = document.getElementById("btnGoBack");
+    btnGB.addEventListener("click", goHome);
+    let btnOff = document.getElementById("btnOff");
+    btnOff.addEventListener("click", Off);
+}
+
+let Off = () => {
+    let not = new Notyf();
+    let formData = new FormData();
+    formData.append("page", "Index");
+
+    fetch('usuario', {
+        method: 'POST',
+        body: formData
+    }).then(
+        response => response.json()
+    ).then(
+        response => {
+            console.log(response)
+        }
+    ).catch(
+        error => console.log(error)
+    )
+}
+
+let goHome = () => {
+    let not = new Notyf();
+    let formData = new FormData();
+    formData.append("page", "home");
+
+    fetch('usuario', {
+        method: 'POST',
+        body: formData
+    }).then(
+        response => response.json()
+    ).then(
+        response => {
+            console.log(response)
+        }
+    ).catch(
+        error => console.log(error)
+    )
 }
 
 function search(event){

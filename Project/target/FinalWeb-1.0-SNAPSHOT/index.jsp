@@ -40,9 +40,9 @@
 
                             <div class="form-group">
                                 <label for="password">Contraseña
-                                    <a href="forgot.html" class="float-right">
+                                    <!--<a href="forgot.html" class="float-right">
                                         Restablecer contraseña
-                                    </a>
+                                    </a>-->
                                 </label>
                                 <input id="password" type="password" class="form-control" name="password" required data-eye>
                             </div>

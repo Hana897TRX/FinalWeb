@@ -70,6 +70,12 @@ public class UsuarioController extends HttpServlet {
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.print(message);
+        }else if(request.getParameter("page") == "home"){
+            request.getRequestDispatcher("/home.jsp").forward(request, response);
+        }else if(request.getParameter("page") == "Index"){
+            HttpSession sesion = request.getSession(false);
+            sesion.invalidate();
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
         else {
 

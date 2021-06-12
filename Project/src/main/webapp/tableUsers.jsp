@@ -32,23 +32,23 @@
         </div>
         <div class="sideLeftBanner">
             <div class="sideLeftBanner">
-                <button type="button" class="selectedItem">
+                <button type="button" class="selectedItem" id="btnGoUsers">
                     <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
                     <p class="itemText">Usuarios</p>
                 </button>
-                <button type="button" class="item">
+                <button type="button" class="item" id="btnGoBooks">
                     <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
                     <p class="itemText">Libros</p>
                 </button>
-                <button type="button" class="item">
+                <button type="button" class="item" id="btnGoTranscP">
                     <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
                     <p class="itemText">Transacciones</p>
                 </button>
-                <button type="button" class="item">
+                <button type="button" class="item" id="btnGoTranscG">
                     <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
                     <p class="itemText">Transacciones Globales</p>
                 </button>
-                <button type="button" class="item">
+                <button type="button" class="item" id="btnOff">
                     <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
                     <p class="itemText">Cerrar Sesion</p>
                 </button>
@@ -66,7 +66,7 @@
                                     data-bs-target="#exampleModal">
                                 Nuevo
                             </button>
-                            <button type="button" class="btn-outline-blue">Regresar</button>
+                            <button type="button" class="btn-outline-blue" id="btnGoBack">Regresar</button>
                         </div>
                     </div>
                 </div>
