@@ -7,6 +7,7 @@ import com.example.FinalWeb.model.Usuario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -58,6 +59,9 @@ public class UsuarioController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(request.getParameter("page"));
+        int page = Integer.parseInt(request.getParameter("page"));
+
         if (request.getParameter("idUser") != null){
             int idUser= Integer.parseInt(request.getParameter("idUser"));
 
@@ -70,15 +74,36 @@ public class UsuarioController extends HttpServlet {
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.print(message);
-        }else if(request.getParameter("page") == "home"){
-            request.getRequestDispatcher("/home.jsp").forward(request, response);
-        }else if(request.getParameter("page") == "Index"){
-            HttpSession sesion = request.getSession(false);
-            sesion.invalidate();
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-        }
-        else {
-
+        }else if(page != -1){
+            if(page == 0){
+                HttpSession sesion = request.getSession(false);
+                sesion.invalidate();
+                request.getRequestDispatcher("index").forward(request, response);
+                //response.sendRedirect("index.jsp");
+                return;
+            }
+            else if(page == 1) {
+                request.getRequestDispatcher("home").forward(request, response);
+                //response.sendRedirect("home.jsp");
+                return;
+            }
+            else if(page == 2) {
+                //RequestDispatcher dis = request.getRequestDispatcher("books");
+                //dis.forward(request, response);
+                response.sendRedirect("books");
+                return;
+            }
+            else if(page == 3) {
+                //request.getRequestDispatcher("/MyExchange").forward(request, response);
+                response.sendRedirect("MyExchange");
+                return;
+            }
+            else if(page == 4) {
+                //request.getRequestDispatcher("/Exchange").forward(request, response);
+                response.sendRedirect("Exchange");
+                return;
+            }
+        }else{
             request.setCharacterEncoding("UTF-8");
             String  name = request.getParameter("name");
             String  lastName = request.getParameter("lastName");

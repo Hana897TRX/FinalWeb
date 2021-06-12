@@ -14,16 +14,79 @@ let load = () => {
 
     document.getElementById("search").addEventListener("change", search);
 
-    let btnGB = document.getElementById("btnGoBack");
-    //btnGB.addEventListener("click", goHome);
+    /*let btnGB = document.getElementById("btnGoBack");
+    btnGB.addEventListener("click", goHome);*/
     let btnOff = document.getElementById("btnOff");
-    //btnOff.addEventListener("click", Off);
+    btnOff.addEventListener("click", Off);
+    /*let btnBooks = document.getElementById("btnGoBooks");
+    btnBooks.addEventListener("click", Books);
+    let btnTranscG = document.getElementById("btnGoTranscG");
+    btnTranscG.addEventListener("click", TranscG);
+    let btnTranscP = document.getElementById("btnGoTranscP");
+    btnTranscP.addEventListener("click", TranscP);*/
 }
 
-/*let Off = () => {
+let Books = () => {
     let not = new Notyf();
     let formData = new FormData();
-    formData.append("page", "Index");
+    formData.append("page", 2);
+
+    fetch('usuario', {
+        method: 'POST',
+        body: formData
+    }).then(
+        response => response.json()
+    ).then(
+        response => {
+            console.log(response)
+        }
+    ).catch(
+        error => console.log(error)
+    )
+}
+
+let TranscG = () => {
+    let not = new Notyf();
+    let formData = new FormData();
+    formData.append("page", 3);
+
+    fetch('usuario', {
+        method: 'POST',
+        body: formData
+    }).then(
+        response => response.json()
+    ).then(
+        response => {
+            console.log(response)
+        }
+    ).catch(
+        error => console.log(error)
+    )
+}
+
+let TranscP = () => {
+    let not = new Notyf();
+    let formData = new FormData();
+    formData.append("page", 4);
+
+    fetch('usuario', {
+        method: 'POST',
+        body: formData
+    }).then(
+        response => response.json()
+    ).then(
+        response => {
+            console.log(response)
+        }
+    ).catch(
+        error => console.log(error)
+    )
+}
+
+let Off = () => {
+    let not = new Notyf();
+    let formData = new FormData();
+    formData.append("page", 0);
 
     fetch('usuario', {
         method: 'POST',
@@ -42,7 +105,7 @@ let load = () => {
 let goHome = () => {
     let not = new Notyf();
     let formData = new FormData();
-    formData.append("page", "home");
+    formData.append("page", 1);
 
     fetch('usuario', {
         method: 'POST',
@@ -56,7 +119,7 @@ let goHome = () => {
     ).catch(
         error => console.log(error)
     )
-}*/
+}
 
 function search(event){
     find(event.currentTarget.value);

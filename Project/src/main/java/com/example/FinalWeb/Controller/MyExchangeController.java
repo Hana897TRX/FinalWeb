@@ -23,14 +23,12 @@ public class MyExchangeController extends HttpServlet {
         message = (Integer)sesion.getAttribute("idUser");
         userType = (Integer)sesion.getAttribute("userType");
 
-        if(message != 0 && userType != 3 ) {
+        if(message != 0) {
             idUser = message;
             BookExchangeDao bookExchangeDao = new BookExchangeDao();
             List<BookExchange> bookExchangeList = bookExchangeDao.getBookExchange(idUser);
             request.setAttribute("bookExchangeList", bookExchangeList);
             request.getRequestDispatcher("/myTransactions.jsp").forward(request, response);
-        }else if(message != 0 && userType == 3){
-            response.sendRedirect("home.jsp");
         }else{
             response.sendRedirect("index.jsp");
         }

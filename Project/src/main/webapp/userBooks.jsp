@@ -31,26 +31,36 @@
             <img src="assets/img/logo.png" alt="logo" height="65" width="65"/>
         </div>
         <div class="sideLeftBanner">
-            <button type="button" class="item" id="btnGoUsers">
-                <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
-                <p class="itemText">Usuarios</p>
-            </button>
-            <button type="button" class="selectedItem" id="btnGoBooks">
-                <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
-                <p class="itemText">Libros</p>
-            </button>
-            <button type="button" class="item" id="btnGoTranscP">
-                <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
-                <p class="itemText">Transacciones</p>
-            </button>
-            <button type="button" class="item" id="btnGoTranscG">
-                <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
-                <p class="itemText">Transacciones Globales</p>
-            </button>
-            <button type="button" class="item" id="btnOff">
-                <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
-                <p class="itemText">Cerrar Sesion</p>
-            </button>
+            <a href="/FinalWeb_war_exploded/usuario">
+                <button type="button" class="selectedItem" id="btnGoUsers">
+                    <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
+                    <p class="itemText">Usuarios</p>
+                </button>
+            </a>
+            <a href="/FinalWeb_war_exploded/books">
+                <button type="button" class="item" id="btnGoBooks">
+                    <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
+                    <p class="itemText">Libros</p>
+                </button>
+            </a>
+            <a href="/FinalWeb_war_exploded/MyExchange">
+                <button type="button" class="item" id="btnGoTranscP">
+                    <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
+                    <p class="itemText">Transacciones</p>
+                </button>
+            </a>
+            <a href="/FinalWeb_war_exploded/Exchange">
+                <button type="button" class="item" id="btnGoTranscG">
+                    <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
+                    <p class="itemText">Transacciones Globales</p>
+                </button>
+            </a>
+            <a href="/FinalWeb_war_exploded/index.jsp">
+                <button type="button" class="item" id="btnOff">
+                    <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
+                    <p class="itemText">Cerrar Sesion</p>
+                </button>
+            </a>
         </div>
     </div>
     <div class="col-sm-10">
