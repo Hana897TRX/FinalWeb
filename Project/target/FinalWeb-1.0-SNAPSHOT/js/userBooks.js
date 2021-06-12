@@ -132,9 +132,6 @@ function uploadAndSave(){
                                         }
                                     }
                                 )
-                                .catch(
-                                    not.error("Error, no se ha añadadido el registro")
-                                )
                         } else
                             not.error("¡Book cover is empty!")
                     } else

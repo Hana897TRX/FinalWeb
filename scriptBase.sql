@@ -29,7 +29,23 @@ CREATE TABLE Users(
     FOREIGN KEY (userType) REFERENCES UserType(idType)
 ) ENGINE=INNODB;
 
-SELECT * FROM Books;
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Bob","Duncan","1980-06-24","bob@duncan.com",SHA2("123", 224),1);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("PJ","Duncan","1996-06-04","pg@duncan.com",SHA2("123", 224),2);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Joshua","Bassett","2000-12-22","joshua@basset.com",SHA2("123", 224),3);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Olivia","Rodrigo","2003-02-20","liv@rodrigo.com",SHA2("123", 224),3);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Sofia","Wylie","2004-01-07","sofia@wylie.com",SHA2("123", 224),3);
+
+
+SELECT * FROM Users;
 
 DROP TABLE IF EXISTS Books;
 CREATE TABLE Books(
@@ -52,14 +68,16 @@ SELECT * FROM Books;
 
 DROP TABLE IF EXISTS BookExchange;
 CREATE TABLE BookExchange(
-    idExchange INT NOT NULL,
+    idExchange INT NOT NULL AUTO_INCREMENT,
     idBookOwner INT NOT NULL,
     idBookReceiver INT NOT NULL,
-    idBook INT NOT NULL,
-    exchangeDate DATE NOT NULL,
+    exchangeDate VARCHAR(25) NOT NULL,
 
     PRIMARY KEY (idExchange),
-    FOREIGN KEY (idBookOwner) REFERENCES Users(idUser),
-    FOREIGN KEY (idBookReceiver) REFERENCES Users(idUser),
-    FOREIGN KEY (idBook) REFERENCES Books(idBook)
+    FOREIGN KEY (idBookOwner) REFERENCES Books(idBook),
+    FOREIGN KEY (idBookReceiver) REFERENCES Books(idBook)
 ) ENGINE=INNODB;
+
+-- idUser sesion
+
+INSERT Users (name, lastname, birthday, email, password, userType) VALUES('Hana2', 'Soto', '2016-09-22', 'hana2@hana.com', SHA2('123', 224), 1);
