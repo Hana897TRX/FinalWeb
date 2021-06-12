@@ -20,6 +20,10 @@ public class MyExchangeController extends HttpServlet {
         int userType = 0;
 
         HttpSession sesion = request.getSession(false);
+
+        if(sesion == null)
+            response.sendRedirect("index.jsp");
+
         message = (Integer)sesion.getAttribute("idUser");
         userType = (Integer)sesion.getAttribute("userType");
 

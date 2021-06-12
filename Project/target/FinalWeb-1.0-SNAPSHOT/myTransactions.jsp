@@ -76,7 +76,7 @@
         <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
             <div class="input-group">
                 <span class="input-group-text" style="background-color: white; border: white;"><i class="bi bi-search"></i></span>
-                <input type="email" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search an user" style="border-color: rgba(0, 0, 0, 0);">
+                <input type="email" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search a transaction" style="border-color: rgba(0, 0, 0, 0);">
             </div>
         </div>
 

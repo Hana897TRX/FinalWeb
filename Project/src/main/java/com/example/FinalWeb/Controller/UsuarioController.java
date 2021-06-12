@@ -33,6 +33,10 @@ public class UsuarioController extends HttpServlet {
 
         HttpSession sesion = request.getSession(false);
 
+        if(sesion == null){
+            response.sendRedirect("index.jsp");
+        }
+
         if(sesion.getAttribute("idUser") != null){
             System.out.print(sesion.getAttribute("idUser"));
             message = (Integer)sesion.getAttribute("idUser");
@@ -60,7 +64,10 @@ public class UsuarioController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println(request.getParameter("page"));
-        int page = Integer.parseInt(request.getParameter("page"));
+
+        String page = request.getParameter("page");
+
+        //int page = Integer.parseInt(request.getParameter("page"));
 
         if (request.getParameter("idUser") != null){
             int idUser= Integer.parseInt(request.getParameter("idUser"));
@@ -74,15 +81,16 @@ public class UsuarioController extends HttpServlet {
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.print(message);
-        }else if(page != -1){
-            if(page == 0){
+        }else if(page != null && !page.equals("-1")){
+            if(page.equals("0")){
                 HttpSession sesion = request.getSession(false);
                 sesion.invalidate();
                 request.getRequestDispatcher("index").forward(request, response);
                 //response.sendRedirect("index.jsp");
                 return;
             }
-            else if(page == 1) {
+            /*
+            else if(page != null && page == 1) {
                 request.getRequestDispatcher("home").forward(request, response);
                 //response.sendRedirect("home.jsp");
                 return;
@@ -103,6 +111,7 @@ public class UsuarioController extends HttpServlet {
                 response.sendRedirect("Exchange");
                 return;
             }
+             */
         }else{
             request.setCharacterEncoding("UTF-8");
             String  name = request.getParameter("name");

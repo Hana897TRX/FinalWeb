@@ -14,6 +14,8 @@
             crossorigin="anonymous"></script>
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <link rel="stylesheet" href="css/home.css">
     <script src="js/home.js"></script>
 </head>
@@ -22,12 +24,6 @@
 <!-- Nav bar-->
 <nav class="navbar navbar-light bg-light justify-content-between" style="height: 50px;">
     <div class="container">
-        <div class="input-group mb-3" style="width: 20%;">
-            <span class="input-group-text input-box" id="basic-addon1"><i class="bi bi-search"></i></span>
-            <input type="search" class="form-control input-box" id="exampleInputEmail1" aria-describedby="emailHelp"
-                   placeholder="Search book">
-        </div>
-
         <div class="navbar-item">
             <img src="assets/img/logo.png" alt="" width="30px" height="25px" style="display: inline-block; float: none; vertical-align: top;">
         </div>
@@ -64,6 +60,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <form id="exchangeForm">
                 <div class="row">
                     <div class="col-sm-6">
                         <center>
@@ -121,13 +118,15 @@
                         </div>
                         <input id="idBookUser" type="hidden">
                     </div>
+
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button id="exchangeBook" type="button" class="btn btn-primary">Intercambiar</button>
+                <button id="exchangeBook" type="button" class="btn btn-primary" class="btn btn-secondary" data-bs-dismiss="modal">Intercambiar</button>
             </div>
         </div>
+        </form>
     </div>
 </div>
 </body>

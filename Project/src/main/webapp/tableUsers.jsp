@@ -88,11 +88,10 @@
                     <input type="email" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search an user" style="border-color: rgba(0, 0, 0, 0);">
                 </div>
             </div>
-            <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
 
 
+
             <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
-                <div class="container">
                     <table>
                         <thead>
                         <tr>
@@ -128,7 +127,6 @@
                         </c:forEach>
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
     </div>
@@ -174,7 +172,8 @@
                         <input type="button" value="Cancelar" id="btnBack" class="btn-outline-blue"
                                data-bs-dismiss="modal">
                         <!--</a>-->
-                        <input type="button" value="Registrar" id="btnRegisUser" class="btn-outline-purple">
+                        <input type="button" value="Registrar" id="btnRegisUser" class="btn-outline-purple" class="btn-outline-blue"
+                               data-bs-dismiss="modal">
                     </div>
                 </div>
             </div>
@@ -221,7 +220,8 @@
                         <input type="button" value="Cancelar" id="btnBackEdit" class="btn-outline-blue"
                                data-bs-dismiss="modal">
                         <!--</a>-->
-                        <input type="button" value="Actualizar" id="btnEditUser" class="btn-outline-purple">
+                        <input type="button" value="Actualizar" id="btnEditUser" class="btn-outline-purple" class="btn-outline-blue"
+                               data-bs-dismiss="modal">
                     </div>
                 </div>
             </div>

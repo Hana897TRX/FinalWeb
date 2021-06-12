@@ -14,6 +14,9 @@ public class HomeController extends HttpServlet {
         HttpSession sesion = request.getSession(false);
 
         if(sesion != null) {
+            if(sesion.getAttribute("idUser") == null)
+                response.sendRedirect("index.jsp");
+
             int idUser = (Integer) sesion.getAttribute("idUser");
             if (idUser != 0) {
                 request.getRequestDispatcher("/home.jsp").forward(request, response);

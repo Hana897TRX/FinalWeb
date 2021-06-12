@@ -35,6 +35,9 @@ public class BookController extends HttpServlet {
 
         HttpSession sesion = request.getSession(false);
 
+        if(sesion == null)
+            response.sendRedirect("index.jsp");
+
         if(sesion.getAttribute("idUser") != null) {
             System.out.print(sesion.getAttribute("idUser"));
             message = (Integer) sesion.getAttribute("idUser");

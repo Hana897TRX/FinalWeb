@@ -19,9 +19,14 @@ let regis = () => {
     formData.append("password", password);
 
     let regEx = /[a-zA-Z0-9]+@+[a-z]+\.[a-z]+/
+    let noScript = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g
 
     if(name == "" || lastName == "" || !birthday || mail == "" || password == "")
         not.error("Es necesario llenar todos los campos");
+    else if(noScript.test(name) || noScript.test(lastName) || noScript.test(mail) || noScript.test(password)) {
+        not.error('Caracteres espaciales detectados');
+        return;
+    }
     else if(!regEx.test(mail))
         not.error("Correo invalido")
     else {

@@ -211,7 +211,7 @@ let update = () => {
                 else{
                     not.success("Registro actualizado correctamente")
                 }
-                document.getElementById("formulario").reset();
+                document.getElementById("formularioEdit").reset();
             }
         ).catch(
             error => console.log(error)

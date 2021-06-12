@@ -320,8 +320,10 @@ function changeUserBookData(event){
 }
 
 async function exchangeBook(){
+    let not = new Notyf();
     let idBookOwner = document.getElementById("idOwner").value;
     let idBookUser = document.getElementById("userBooks").value;
+
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -341,9 +343,16 @@ async function exchangeBook(){
 
     try{
         const jsonResponse = await response.json();
+
+        console.log(jsonResponse);
+
+        not.success('The exchange request has been sent');
+
+        document.getElementById("exchangeForm").reset();
     }
     catch (e){
         console.log(e)
+        not.error('Error')
     }
 
 

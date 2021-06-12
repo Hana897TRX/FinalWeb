@@ -92,9 +92,9 @@ function uploadAndSave(){
     let file = document.getElementById("bookCover").files[0];
     let method = 'POST';
 
-    if(bookName.length > 5 && bookName.length < 20){
-        if(bookIsbn.length > 5 && bookIsbn.length < 20){
-            if(bookDate.length > 5 && bookDate.length <= 10){
+    if(bookName.length > 3 && bookName.length < 20){
+        if(bookIsbn.length > 3 && bookIsbn.length < 20){
+            if(bookDate.length > 3 && bookDate.length <= 10){
                 if(bookAuthor.length > 3 && bookAuthor.length < 20) {
                     if (status.length > 2 && status.length < 15 && status !== "Choose one") {
                         if (file != null) {
