@@ -2,7 +2,8 @@ function ready() {
     getTop5();
     getUserBooks();
     document.getElementById("userBooks").addEventListener("change", changeUserBookData);
-    document.getElementById("goToBooks").addEventListener("click", goToBooks)
+    document.getElementById("goToBooks").addEventListener("click", goToBooks);
+    document.getElementById("exchangeBook").addEventListener("click", exchangeBook);
 
 }
 
@@ -292,7 +293,7 @@ function btnShowModalTransaction(event) {
             document.getElementById("bookBuyDateOwner").value = response.fechaCompra
             document.getElementById("bookStatusOwner").value  = response.status;
             document.getElementById("imgOwnerCover").setAttribute("src", "data:" + response.coverBookType + ";base64," + response.content);
-            document.getElementById("idOwner").value = response.idOwner;
+            document.getElementById("idOwner").value = response.idBook;
         })
 }
 
@@ -316,6 +317,36 @@ function changeUserBookData(event){
                 document.getElementById("bookStatusUser").value = response.status;
             }
         )
+}
+
+async function exchangeBook(){
+    let idBookOwner = document.getElementById("idOwner").value;
+    let idBookUser = document.getElementById("userBooks").value;
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    let formData = new FormData();
+    formData.append('idBookOwner', idBookOwner);
+    formData.append('idBookUser', idBookUser);
+    formData.append('today', today);
+
+    let response = await fetch('Exchange', {
+        method : 'POST',
+        body : formData
+    });
+
+    try{
+        const jsonResponse = await response.json();
+    }
+    catch (e){
+        console.log(e)
+    }
+
+
 }
 
 document.addEventListener("DOMContentLoaded", ready);

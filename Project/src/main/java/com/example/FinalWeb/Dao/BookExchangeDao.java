@@ -11,8 +11,28 @@ import java.util.List;
 
 public class BookExchangeDao implements  IBookExchange{
     @Override
+    public boolean saveBookExchange(BookExchange bookExchange) {
+        String sql = "INSERT INTO bookexchange(idBookOwner, idBookReceiver, exchangeDate) VALUES (?, ? , ?)";
+        Connection connection = MySQLConnection.getConnection();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, bookExchange.getIdBookOwner());
+            preparedStatement.setInt(2, bookExchange.getIdBookReceiver());
+            preparedStatement.setString(3, bookExchange.getExchangeDate());
+
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
     public List<BookExchange> getBookExchange() {
-        String sql ="SELECT idExchange, idBookOwner, idBookReceiver, idBook, exchangeDate FROM BookExchange";
+        String sql ="SELECT * FROM BookExchange";
 
         BookExchange exchange = null;
         List<BookExchange> exchangeList = new ArrayList();
@@ -28,8 +48,7 @@ public class BookExchangeDao implements  IBookExchange{
                 exchange.setIdExchange(resultSet.getInt("idExchange"));
                 exchange.setIdBookOwner(resultSet.getInt("idBookOwner"));
                 exchange.setIdBookReceiver(resultSet.getInt("idBookReceiver"));
-                exchange.setIdBook(resultSet.getInt("idBook"));
-                exchange.setExchangeDate(resultSet.getDate("exchangeDate"));
+                exchange.setExchangeDate(resultSet.getString("exchangeDate"));
 
                 exchangeList.add(exchange);
             }
@@ -43,8 +62,9 @@ public class BookExchangeDao implements  IBookExchange{
 
     @Override
     public List<BookExchange> getBookExchange(int idUser) {
-        String sql = "SELECT idExchange, idBookOwner, idBookReceiver, idBook, exchangeDate FROM BookExchange" +
-                " WHERE idBookOwner = ?";
+        String sql = "SELECT * FROM BookExchange " +
+                "WHERE idBookOwner IN (SELECT idBook FROM Books WHERE idUser = ?) " +
+                "OR idBookReceiver IN (SELECT idBook FROM Books WHERE idUser = ?);";
 
         BookExchange exchange = null;
         List<BookExchange> exchangeList = new ArrayList();
@@ -53,6 +73,7 @@ public class BookExchangeDao implements  IBookExchange{
             Connection connection = MySQLConnection.getConnection();
             PreparedStatement preparedStatement =connection.prepareStatement(sql);
             preparedStatement.setInt(1, idUser);
+            preparedStatement.setInt(2, idUser);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -62,8 +83,7 @@ public class BookExchangeDao implements  IBookExchange{
                 exchange.setIdExchange(resultSet.getInt("idExchange"));
                 exchange.setIdBookOwner(resultSet.getInt("idBookOwner"));
                 exchange.setIdBookReceiver(resultSet.getInt("idBookReceiver"));
-                exchange.setIdBook(resultSet.getInt("idBook"));
-                exchange.setExchangeDate(resultSet.getDate("exchangeDate"));
+                exchange.setExchangeDate(resultSet.getString("exchangeDate"));
 
                 exchangeList.add(exchange);
             }

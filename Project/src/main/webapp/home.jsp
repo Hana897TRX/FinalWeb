@@ -119,12 +119,13 @@
                             <span class="input-group-text col-sm-4">Book status</span>
                             <input id="bookStatusUser" type="text" aria-label="Last name" class="form-control" disabled>
                         </div>
+                        <input id="idBookUser" type="hidden">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Intercambiar</button>
+                <button id="exchangeBook" type="button" class="btn btn-primary">Intercambiar</button>
             </div>
         </div>
     </div>

@@ -8,17 +8,15 @@ public class BookExchange implements Serializable {
     private int idExchange;
     private int idBookOwner;
     private int idBookReceiver;
-    private int idBook;
-    private Date exchangeDate;
+    private String exchangeDate;
 
     public BookExchange() {
     }
 
-    public BookExchange(int idExchange, int idBookOwner, int idBookReceiver, int idBook, Date exchangeDate) {
+    public BookExchange(int idExchange, int idBookOwner, int idBookReceiver, String exchangeDate) {
         this.idExchange = idExchange;
         this.idBookOwner = idBookOwner;
         this.idBookReceiver = idBookReceiver;
-        this.idBook = idBook;
         this.exchangeDate = exchangeDate;
     }
 
@@ -46,19 +44,11 @@ public class BookExchange implements Serializable {
         this.idBookReceiver = idBookReceiver;
     }
 
-    public int getIdBook() {
-        return idBook;
-    }
-
-    public void setIdBook(int idBook) {
-        this.idBook = idBook;
-    }
-
-    public Date getExchangeDate() {
+    public String getExchangeDate() {
         return exchangeDate;
     }
 
-    public void setExchangeDate(Date exchangeDate) {
+    public void setExchangeDate(String exchangeDate) {
         this.exchangeDate = exchangeDate;
     }
 
@@ -68,7 +58,6 @@ public class BookExchange implements Serializable {
                 "idExchange=" + idExchange +
                 ", idBookOwner=" + idBookOwner +
                 ", idBookReceiver=" + idBookReceiver +
-                ", idBook=" + idBook +
                 ", exchangeDate=" + exchangeDate +
                 '}';
     }
