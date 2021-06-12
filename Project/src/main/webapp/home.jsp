@@ -64,6 +64,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <form id="exchangeForm">
                 <div class="row">
                     <div class="col-sm-6">
                         <center>
@@ -121,13 +122,15 @@
                         </div>
                         <input id="idBookUser" type="hidden">
                     </div>
+
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button id="exchangeBook" type="button" class="btn btn-primary">Intercambiar</button>
+                <button id="exchangeBook" type="button" class="btn btn-primary" class="btn btn-secondary" data-bs-dismiss="modal">Intercambiar</button>
             </div>
         </div>
+        </form>
     </div>
 </div>
 </body>

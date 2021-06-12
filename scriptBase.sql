@@ -52,14 +52,16 @@ SELECT * FROM Books;
 
 DROP TABLE IF EXISTS BookExchange;
 CREATE TABLE BookExchange(
-    idExchange INT NOT NULL,
+    idExchange INT NOT NULL AUTO_INCREMENT,
     idBookOwner INT NOT NULL,
     idBookReceiver INT NOT NULL,
-    idBook INT NOT NULL,
-    exchangeDate DATE NOT NULL,
+    exchangeDate VARCHAR(25) NOT NULL,
 
     PRIMARY KEY (idExchange),
-    FOREIGN KEY (idBookOwner) REFERENCES Users(idUser),
-    FOREIGN KEY (idBookReceiver) REFERENCES Users(idUser),
-    FOREIGN KEY (idBook) REFERENCES Books(idBook)
+    FOREIGN KEY (idBookOwner) REFERENCES Books(idBook),
+    FOREIGN KEY (idBookReceiver) REFERENCES Books(idBook)
 ) ENGINE=INNODB;
+
+-- idUser sesion
+
+INSERT Users (name, lastname, birthday, email, password, userType) VALUES('Hana2', 'Soto', '2016-09-22', 'hana2@hana.com', SHA2('123', 224), 1);
