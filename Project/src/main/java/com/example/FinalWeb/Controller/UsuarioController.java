@@ -23,22 +23,31 @@ import java.util.List;
 @WebServlet(name = "usuario", value = "/usuario")
 @MultipartConfig
 public class UsuarioController extends HttpServlet {
+    private int idUser = 0;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*HttpSession sesion = request.getSession();
-        if(sesion.getAttribute("usuario") != null) {
+        int message = 0;
+        int userType = 0;
+
+        HttpSession sesion = request.getSession(false);
+        System.out.print(sesion.getAttribute("idUser"));
+        message = (Integer)sesion.getAttribute("idUser");
+        userType = (Integer)sesion.getAttribute("userType");
+        System.out.print("User controller: " + message);
+
+        if(message != 0 && userType != 3 ) {
+            idUser = message;
             UsuarioDao usuarioDao = new UsuarioDao();
-            List<Usuario> usuarios = usuarioDao.getUsers();
-            request.setAttribute("usuarios", usuarios);
-            request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
+            List<Usuario> usuariosList = usuarioDao.getUsers();
+            request.setAttribute("usuarioslist", usuariosList);
+            request.getRequestDispatcher("/tableUsers.jsp").forward(request, response);
+        }else if(message != 0 && userType == 3){
+            response.sendRedirect("home.jsp");
+        }else{
+            response.sendRedirect("index.jsp");
         }
-        else
-            request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);*/
-        System.out.println("Got to controller");
-        UsuarioDao usuarioDao = new UsuarioDao();
-        List<Usuario> usuariosList = usuarioDao.getUsers();
-        request.setAttribute("usuarioslist", usuariosList);
-        request.getRequestDispatcher("/tableUsers.jsp").forward(request, response);
+
     }
 
     @Override

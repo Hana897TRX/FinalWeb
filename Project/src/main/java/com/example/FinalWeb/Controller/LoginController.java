@@ -34,6 +34,7 @@ public class LoginController extends HttpServlet {
             if(user != null){
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("idUser", user.getIdUser());
+                sesion.setAttribute("userType", user.getUserType());
                 System.out.println(user.getIdUser());
                 response.sendRedirect("home.jsp");
             }else{
