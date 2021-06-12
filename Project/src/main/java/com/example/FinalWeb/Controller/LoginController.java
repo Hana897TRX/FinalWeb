@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("idUser", user.getIdUser());
                 System.out.println(user.getIdUser());
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("home");
             }else{
                 request.setAttribute("mensaje", "Error al iniciar sesión");
                 request.getRequestDispatcher("index.jsp").forward(request, response);

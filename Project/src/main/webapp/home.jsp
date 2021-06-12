@@ -29,11 +29,10 @@
         </div>
 
         <div class="navbar-item">
-            <img src="assets/img/logo.png" alt="" width="30px" height="25px"
-                 style="display: inline-block; float: none; vertical-align: top;">
+            <a href="" ><img src="assets/img/logo.png" alt="" width="30px" height="25px" style="display: inline-block; float: none; vertical-align: top;"></a>
         </div>
         <div class="navbar-item">
-            <a> <img src="assets/img/profile_icon.png" width="25px" height="25px"> </a>
+            <a href="FinalWeb_war_exploded/books"> <img src="assets/img/profile_icon.png" width="25px" height="25px"> </a>
         </div>
     </div>
 </nav>

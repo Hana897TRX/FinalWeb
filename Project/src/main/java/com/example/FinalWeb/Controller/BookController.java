@@ -27,6 +27,7 @@ public class BookController extends HttpServlet {
             BookDao bookDao = new BookDao();
             bookDao.deteteBook(idBook);
         }
+
     }
 
     @Override
@@ -34,20 +35,25 @@ public class BookController extends HttpServlet {
         int message = 0;
 
         HttpSession sesion = request.getSession(false);
-        System.out.print(sesion.getAttribute("idUser"));
-        message = (Integer)sesion.getAttribute("idUser");
-        System.out.print("Book controller: " + message);
 
-        if(message != 0) {
-            idUser = message;
-            BookDao bookDao = new BookDao();
-            List<Book> bookList = bookDao.getBooks(idUser);
-            //System.out.println(bookList);
-            request.setAttribute("userBooks", bookList);
-            request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
-        }else{
-            response.sendRedirect("index.jsp");
+        if(sesion.getAttribute("idUser") != null) {
+            System.out.print(sesion.getAttribute("idUser"));
+            message = (Integer) sesion.getAttribute("idUser");
+            System.out.print("Book controller: " + message);
+
+            if (message != 0) {
+                idUser = message;
+                BookDao bookDao = new BookDao();
+                List<Book> bookList = bookDao.getBooks(idUser);
+                //System.out.println(bookList);
+                request.setAttribute("userBooks", bookList);
+                request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("index.jsp");
+            }
         }
+        else
+            response.sendRedirect("index.jsp");
 
     }
 
@@ -69,7 +75,7 @@ public class BookController extends HttpServlet {
         }
         else if(request.getParameter("idUser") != null){
             System.out.println("GetUserBooks");
-            int idUser = Integer.parseInt(request.getParameter("idUser"));
+            int _idUser = idUser;
 
             List<Book> bookList = new ArrayList<>();
             BookDao bookDao = new BookDao();
