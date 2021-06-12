@@ -89,7 +89,7 @@
                     </tr>
                     <c:forEach items="${userBooks}" var="book">
                         <tr>
-                            <th scope="row">${book.bookName}</th>
+                            <td>${book.bookName}</td>
                             <td>${book.isbn}</td>
                             <td>${book.fechaCompra}</td>
                             <td>${book.author}</td>
