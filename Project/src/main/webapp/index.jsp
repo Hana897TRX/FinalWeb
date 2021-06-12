@@ -124,12 +124,16 @@
                     <div class="card fat">
                         <div>
                             <div class="form-group">
-                                <h4>Tip1</h4>
-                                <img src="assets/img/logo.png" alt="logo" height="150" width="150"/>
+                                <h4>Intercambiar un libro</h4>
+                                <img src="assets/img/TipIntercambio.PNG" alt="logo" height="200" width="300"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non</label>
+                                <label>-Elige el libro de tu preferencia.</label>
+                                <label>-Da click en la portada. </label>
+                                <label>-Llena la información necesaria. </label>
+                                <label>-Da click en "Intercambiar".</label>
+                                <label>¡Disfruta de tu nuevo libro!</label>
                             </div>
                         </div>
                     </div>
@@ -162,12 +166,16 @@
                     <div class="card fat">
                         <div>
                             <div class="form-group">
-                                <h4>Tip2</h4>
-                                <img src="assets/img/logo.png" alt="logo" height="150" width="150"/>
+                                <h4>Agregar un nuevo libro</h4>
+                                <img src="assets/img/TipAgregar.PNG" height="200" width="300"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non</label>
+                                <label>-Ingresa al menu</label>
+                                <label>-Da click en el botón "Add new book"</label>
+                                <label>-Llena toda la información requerida de tu libro</label>
+                                <label>-Da click en "Save new book"</label>
+                                <label>¡Agrega todos los libros que desees!</label>
                             </div>
                         </div>
                     </div>
@@ -202,12 +210,13 @@
                     <div class="card fat">
                         <div>
                             <div class="form-group">
-                                <h4>Tip3</h4>
-                                <img src="assets/img/logo.png" alt="logo" height="150" width="150"/>
+                                <h4>Consultar información</h4>
+                                <img src="assets/img/TipMenu.PNG" height="200" width="300"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros auctor sed vestibulum tellus consequat. Pellentesque tincidunt hendrerit neque, tincidunt tempus mauris consequat non</label>
+                                <label>Para ingresar al menu da click en el icono</label>
+                                <label>Podrás ver toda tu información como libros e intercambios realizados</label>
                             </div>
                         </div>
                     </div>
