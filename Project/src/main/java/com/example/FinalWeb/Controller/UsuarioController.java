@@ -31,22 +31,28 @@ public class UsuarioController extends HttpServlet {
         int userType = 0;
 
         HttpSession sesion = request.getSession(false);
-        System.out.print(sesion.getAttribute("idUser"));
-        message = (Integer)sesion.getAttribute("idUser");
-        userType = (Integer)sesion.getAttribute("userType");
-        System.out.print("User controller: " + message);
 
-        if(message != 0 && userType != 3 ) {
-            idUser = message;
-            UsuarioDao usuarioDao = new UsuarioDao();
-            List<Usuario> usuariosList = usuarioDao.getUsers();
-            request.setAttribute("usuarioslist", usuariosList);
-            request.getRequestDispatcher("/tableUsers.jsp").forward(request, response);
-        }else if(message != 0 && userType == 3){
-            response.sendRedirect("home.jsp");
+        if(sesion.getAttribute("idUser") != null){
+            System.out.print(sesion.getAttribute("idUser"));
+            message = (Integer)sesion.getAttribute("idUser");
+            userType = (Integer)sesion.getAttribute("userType");
+            System.out.print("User controller: " + message);
+
+            if(message != 0 && userType != 3 ) {
+                idUser = message;
+                UsuarioDao usuarioDao = new UsuarioDao();
+                List<Usuario> usuariosList = usuarioDao.getUsers();
+                request.setAttribute("usuarioslist", usuariosList);
+                request.getRequestDispatcher("/tableUsers.jsp").forward(request, response);
+            }else if(message != 0 && userType == 3){
+                response.sendRedirect("home.jsp");
+            }else{
+                response.sendRedirect("index.jsp");
+            }
         }else{
             response.sendRedirect("index.jsp");
         }
+
 
     }
 
