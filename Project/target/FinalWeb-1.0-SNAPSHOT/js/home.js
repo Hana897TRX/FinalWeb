@@ -70,8 +70,16 @@ function getMoreBooks() {
         .then(response => {
             console.log(response);
             let moreSection = document.getElementById("moreSection");
+            let div = document.createElement("div");
+                div.setAttribute("class", "row");
+                moreSection.append(div);
             for (let i = 0; i < response.length; i++) {
-                moreBooks(moreSection, response[i]);
+                if(i % 5 == 0){
+                        div = document.createElement("div");
+                        div.setAttribute("class", "row");
+                        moreSection.append(div);
+                }
+                moreBooks(div, response[i]);
             }
         })
         .catch(
