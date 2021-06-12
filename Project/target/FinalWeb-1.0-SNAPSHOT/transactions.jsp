@@ -39,11 +39,11 @@
                     <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
                     <p class="itemText">Libros</p>
                 </button>
-                <button type="button" class="item">
+                <button type="button" class="selectedItem">
                     <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
                     <p class="itemText">Transacciones</p>
                 </button>
-                <button type="button" class="selectedItem">
+                <button type="button" class="item">
                     <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
                     <p class="itemText">Transacciones Globales</p>
                 </button>
