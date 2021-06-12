@@ -27,7 +27,6 @@ public class BookController extends HttpServlet {
             BookDao bookDao = new BookDao();
             bookDao.deteteBook(idBook);
         }
-
     }
 
     @Override
@@ -47,7 +46,7 @@ public class BookController extends HttpServlet {
                 List<Book> bookList = bookDao.getBooks(idUser);
                 //System.out.println(bookList);
                 request.setAttribute("userBooks", bookList);
-                request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
+                request.getRequestDispatcher("userBooks.jsp").forward(request, response);
             } else {
                 response.sendRedirect("index.jsp");
             }
@@ -60,7 +59,10 @@ public class BookController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-        System.out.println(request.getParameter("action"));
+        //System.out.println(request.getParameter("action"));
+
+        String action = request.getParameter("action");
+
         if (request.getParameter("idBook") != null) {
             int bookid = Integer.parseInt(request.getParameter("idBook"));
 
@@ -87,7 +89,7 @@ public class BookController extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.print(message);
         }
-        else if(request.getParameter("action").equals("GET_TOP5")){
+        else if(action != null && action.equals("GET_TOP5")){
             BookDao bookDao = new BookDao();
             List<Book> bookList = new ArrayList<>();
             bookList = bookDao.getTop5Books();
@@ -97,7 +99,7 @@ public class BookController extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.print(message);
         }
-        else if (request.getParameter("action").equals("GET_MOREBOOKSECTION")){
+        else if (action != null && action.equals("GET_MOREBOOKSECTION")){
             BookDao bookDao = new BookDao();
             List<Book> bookList = new ArrayList<>();
             bookList = bookDao.getBooks();
@@ -108,7 +110,6 @@ public class BookController extends HttpServlet {
             out.print(message);
         }
         else {
-
             Book book = new Book();
             request.setCharacterEncoding("UTF-8");
             book.setBookName(request.getParameter("bookName"));
@@ -116,7 +117,7 @@ public class BookController extends HttpServlet {
             book.setFechaCompra(Date.valueOf(request.getParameter("bookDate")));
             book.setAuthor(request.getParameter("bookAuthor"));
             book.setStatus(request.getParameter("status"));
-            book.setIdOwner(Integer.parseInt(request.getParameter("idOwner")));
+            book.setIdOwner(idUser);
 
             Part cover = request.getPart("imgCover");
             book.setCoverBookContent(cover.getInputStream());
@@ -150,7 +151,7 @@ public class BookController extends HttpServlet {
         book.setFechaCompra(Date.valueOf(request.getParameter("bookDate")));
         book.setAuthor(request.getParameter("bookAuthor"));
         book.setStatus(request.getParameter("status"));
-        book.setIdOwner(Integer.parseInt(request.getParameter("idOwner")));
+        book.setIdOwner(idUser);
 
         Part cover = request.getPart("imgCover");
         book.setCoverBookContent(cover.getInputStream());

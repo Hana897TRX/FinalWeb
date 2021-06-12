@@ -2,6 +2,33 @@ function ready() {
     getTop5();
     getUserBooks();
     document.getElementById("userBooks").addEventListener("change", changeUserBookData);
+    document.getElementById("goToBooks").addEventListener("click", goToBooks)
+
+}
+
+async function goToBooks(){
+    const body = JSON.stringify({
+        "actionv2": "GOT_TO_BOOKS",
+        "hello": "hello"
+    });
+
+    console.log(body);
+
+    try {
+        const response = await fetch('homeX', {
+            method : 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body : body,
+        });
+
+        const jsonReponse = await response.json();
+
+        console.log("Fetch homeX:", jsonReponse);
+    } catch (error) {
+        console.error("Fetch homeX error:", error)
+    }
 }
 
 function getUserBooks(){
@@ -70,8 +97,16 @@ function getMoreBooks() {
         .then(response => {
             console.log(response);
             let moreSection = document.getElementById("moreSection");
+            let div = document.createElement("div");
+                div.setAttribute("class", "row");
+                moreSection.append(div);
             for (let i = 0; i < response.length; i++) {
-                moreBooks(moreSection, response[i]);
+                if(i % 5 === 0){
+                        div = document.createElement("div");
+                        div.setAttribute("class", "row");
+                        moreSection.append(div);
+                }
+                moreBooks(div, response[i]);
             }
         })
         .catch(

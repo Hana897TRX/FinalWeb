@@ -183,7 +183,7 @@
                                     <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"
                                           data-bs-trigger="hover focus"
                                           data-bs-content="Click over and choose your cover book!">
-                                        <img id="imgBookUser" src="assets/img/book_placeholder.png"
+                                        <img id="imgBookCover" src="assets/img/book_placeholder.png"
                                              class="rounded mx-auto d-block" alt="..." width="125" height="188">
                                     </span>
                                     </label>
