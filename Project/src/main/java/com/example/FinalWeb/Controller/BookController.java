@@ -27,7 +27,6 @@ public class BookController extends HttpServlet {
             BookDao bookDao = new BookDao();
             bookDao.deteteBook(idBook);
         }
-
     }
 
     @Override
@@ -47,7 +46,7 @@ public class BookController extends HttpServlet {
                 List<Book> bookList = bookDao.getBooks(idUser);
                 //System.out.println(bookList);
                 request.setAttribute("userBooks", bookList);
-                request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
+                request.getRequestDispatcher("userBooks.jsp").forward(request, response);
             } else {
                 response.sendRedirect("index.jsp");
             }

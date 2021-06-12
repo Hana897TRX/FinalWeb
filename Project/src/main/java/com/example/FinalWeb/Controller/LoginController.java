@@ -9,6 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "login", value = "/login")
+@MultipartConfig
 public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,8 +18,6 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         String usuario = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -36,7 +35,8 @@ public class LoginController extends HttpServlet {
                 sesion.setAttribute("idUser", user.getIdUser());
                 sesion.setAttribute("userType", user.getUserType());
                 System.out.println(user.getIdUser());
-                response.sendRedirect("home");
+                response.sendRedirect("homeX");
+                //request.getRequestDispatcher("home").forward(request, response);
             }else{
                 request.setAttribute("mensaje", "Error al iniciar sesión");
                 request.getRequestDispatcher("index.jsp").forward(request, response);

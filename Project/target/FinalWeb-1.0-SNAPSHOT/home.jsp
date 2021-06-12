@@ -29,10 +29,14 @@
         </div>
 
         <div class="navbar-item">
-            <a href="" ><img src="assets/img/logo.png" alt="" width="30px" height="25px" style="display: inline-block; float: none; vertical-align: top;"></a>
+            <img src="assets/img/logo.png" alt="" width="30px" height="25px" style="display: inline-block; float: none; vertical-align: top;">
         </div>
         <div class="navbar-item">
-            <a href="FinalWeb_war_exploded/books"> <img src="assets/img/profile_icon.png" width="25px" height="25px"> </a>
+            <button id="goToBooks" style="background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0)">
+                <a href="/FinalWeb_war_exploded/books">
+                    <img src="assets/img/profile_icon.png" width="25px" height="25px">
+                </a>
+            </button>
         </div>
     </div>
 </nav>
