@@ -31,15 +31,14 @@
             <img src="assets/img/logo.png" alt="logo" height="65" width="65"/>
         </div>
         <div class="sideLeftBanner">
-<<<<<<< HEAD
             <a href="/FinalWeb_war_exploded/usuario">
-                <button type="button" class="selectedItem" id="btnGoUsers">
+                <button type="button" class="item" id="btnGoUsers">
                     <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
                     <p class="itemText">Usuarios</p>
                 </button>
             </a>
             <a href="/FinalWeb_war_exploded/books">
-                <button type="button" class="item" id="btnGoBooks">
+                <button type="button" class="selectedItem" id="btnGoBooks">
                     <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
                     <p class="itemText">Libros</p>
                 </button>
@@ -62,28 +61,6 @@
                     <p class="itemText">Cerrar Sesion</p>
                 </button>
             </a>
-=======
-            <button type="button" class="item" id="btnGoUsers">
-                <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
-                <p class="itemText">Usuarios</p>
-            </button>
-            <button type="button" class="selectedItem" id="btnGoBooks">
-                <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
-                <p class="itemText">Libros</p>
-            </button>
-            <button type="button" class="item" id="btnGoTranscP">
-                <span class="iconify" data-icon="vaadin:handshake" data-inline="false"></span>
-                <p class="itemText">Transacciones</p>
-            </button>
-            <button type="button" class="item" id="btnGoTranscG">
-                <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
-                <p class="itemText">Transacciones Globales</p>
-            </button>
-            <button type="button" class="item" id="btnOff">
-                <span class="iconify" data-icon="bi:x-circle-fill" data-inline="false"></span>
-                <p class="itemText">Cerrar Sesion</p>
-            </button>
->>>>>>> 3809fed878c023a601768a6451c0e09f696d20e0
         </div>
     </div>
     <div class="col-sm-10">

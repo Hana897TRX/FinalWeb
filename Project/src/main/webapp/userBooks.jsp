@@ -32,13 +32,13 @@
         </div>
         <div class="sideLeftBanner">
             <a href="/FinalWeb_war_exploded/usuario">
-                <button type="button" class="selectedItem" id="btnGoUsers">
+                <button type="button" class="item" id="btnGoUsers">
                     <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
                     <p class="itemText">Usuarios</p>
                 </button>
             </a>
             <a href="/FinalWeb_war_exploded/books">
-                <button type="button" class="item" id="btnGoBooks">
+                <button type="button" class="selectedItem" id="btnGoBooks">
                     <span class="iconify" data-icon="bi:book-half" data-inline="false"></span>
                     <p class="itemText">Libros</p>
                 </button>
