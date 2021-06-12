@@ -29,7 +29,23 @@ CREATE TABLE Users(
     FOREIGN KEY (userType) REFERENCES UserType(idType)
 ) ENGINE=INNODB;
 
-SELECT * FROM Books;
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Bob","Duncan","1980-06-24","bob@duncan.com",SHA2("123", 224),1);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("PJ","Duncan","1996-06-04","pg@duncan.com",SHA2("123", 224),2);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Joshua","Bassett","2000-12-22","joshua@basset.com",SHA2("123", 224),3);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Olivia","Rodrigo","2003-02-20","liv@rodrigo.com",SHA2("123", 224),3);
+
+INSERT INTO Users(name, lastName, birthday, email, password, userType) 
+VALUES("Sofia","Wylie","2004-01-07","sofia@wylie.com",SHA2("123", 224),3);
+
+
+SELECT * FROM Users;
 
 DROP TABLE IF EXISTS Books;
 CREATE TABLE Books(
