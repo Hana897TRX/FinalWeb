@@ -33,7 +33,7 @@
             </div>
             <div class="sideLeftBanner">
                 <a href="/FinalWeb_war_exploded/usuario">
-                    <button type="button" class="selectedItem" id="btnGoUsers">
+                    <button type="button" class="item" id="btnGoUsers">
                         <span class="iconify" data-icon="bi:people-fill" data-inline="false"></span>
                         <p class="itemText">Usuarios</p>
                     </button>
@@ -51,7 +51,7 @@
                     </button>
                 </a>
                 <a href="/FinalWeb_war_exploded/Exchange">
-                    <button type="button" class="item" id="btnGoTranscG">
+                    <button type="button" class="selectedItem" id="btnGoTranscG">
                         <span class="iconify" data-icon="ant-design:global-outlined" data-inline="false"></span>
                         <p class="itemText">Transacciones Globales</p>
                     </button>

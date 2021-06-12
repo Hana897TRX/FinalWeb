@@ -72,7 +72,9 @@
                         <button id="addBook" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             Add new book
                         </button>
-                        <button type="button" class="btn btn-info">Back</button>
+                        <a href="homeX">
+                            <button type="button" class="btn btn-info">Back</button>
+                        </a>
                     </div>
                 </div>
             </div>

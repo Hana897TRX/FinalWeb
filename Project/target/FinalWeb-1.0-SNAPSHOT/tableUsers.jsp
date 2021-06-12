@@ -74,7 +74,7 @@
                                     data-bs-target="#exampleModal">
                                 Nuevo
                             </button>
-                            <a href="FinalWeb_war_exploded/home.jsp">
+                            <a href="homeX">
                                 <button type="button" class="btn-outline-blue" id="btnGoBack">Regresar</button>
                             </a>
                         </div>
