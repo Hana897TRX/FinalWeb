@@ -11,13 +11,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transacciones</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/transactions.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/transactions.css">
 </head>
 <body>
     <div class="d-flex flex-row">
@@ -48,8 +53,25 @@
                 </button>
             </div>
         </div>
+
         <div class="col-sm-10">
+            <nav class="navbar sticky-top navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Transacciones</a>
+                </div>
+            </nav>
+
+            <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
+                <div class="input-group">
+                    <span class="input-group-text" style="background-color: white; border: white;"><i class="bi bi-search"></i></span>
+                    <input type="email" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search an user" style="border-color: rgba(0, 0, 0, 0);">
+                </div>
+            </div>
+
+
+            <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
             <table>
+                <div class="container">
                 <thead>
                 <tr>
                     <th>#Transaccion</th>
@@ -70,8 +92,10 @@
                     </tr>
                 </c:forEach>
                 </tbody>
+                </div>
             </table>
-        </div>
+            </div>
+    </div>
     </div>
 </body>
 </html>

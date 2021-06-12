@@ -40,4 +40,38 @@ public class BookExchangeDao implements  IBookExchange{
         }
         return null;
     }
+
+    @Override
+    public List<BookExchange> getBookExchange(int idUser) {
+        String sql = "SELECT idExchange, idBookOwner, idBookReceiver, idBook, exchangeDate FROM BookExchange" +
+                " WHERE idBookOwner = ?";
+
+        BookExchange exchange = null;
+        List<BookExchange> exchangeList = new ArrayList();
+
+        try {
+            Connection connection = MySQLConnection.getConnection();
+            PreparedStatement preparedStatement =connection.prepareStatement(sql);
+            preparedStatement.setInt(1, idUser);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                exchange = new BookExchange();
+
+                exchange.setIdExchange(resultSet.getInt("idExchange"));
+                exchange.setIdBookOwner(resultSet.getInt("idBookOwner"));
+                exchange.setIdBookReceiver(resultSet.getInt("idBookReceiver"));
+                exchange.setIdBook(resultSet.getInt("idBook"));
+                exchange.setExchangeDate(resultSet.getDate("exchangeDate"));
+
+                exchangeList.add(exchange);
+            }
+            return exchangeList;
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }

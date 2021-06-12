@@ -15,12 +15,12 @@ let load = () => {
     document.getElementById("search").addEventListener("change", search);
 
     let btnGB = document.getElementById("btnGoBack");
-    btnGB.addEventListener("click", goHome);
+    //btnGB.addEventListener("click", goHome);
     let btnOff = document.getElementById("btnOff");
-    btnOff.addEventListener("click", Off);
+    //btnOff.addEventListener("click", Off);
 }
 
-let Off = () => {
+/*let Off = () => {
     let not = new Notyf();
     let formData = new FormData();
     formData.append("page", "Index");
@@ -56,7 +56,7 @@ let goHome = () => {
     ).catch(
         error => console.log(error)
     )
-}
+}*/
 
 function search(event){
     find(event.currentTarget.value);

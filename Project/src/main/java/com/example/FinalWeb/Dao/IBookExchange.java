@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IBookExchange {
     List<BookExchange> getBookExchange();
+    List<BookExchange> getBookExchange(int idUser);
 }
