@@ -88,7 +88,6 @@
                     <th>#Transaccion</th>
                     <th>Usuario Dueño</th>
                     <th>Nuevo dueño</th>
-                    <th>Identificador libro</th>
                     <th>Fecha de intercambio</th>
                 </tr>
                 </thead>
@@ -98,7 +97,6 @@
                         <td>${exchange.idExchange}</td>
                         <td>${exchange.idBookOwner}</td>
                         <td>${exchange.idBookReceiver}</td>
-                        <td>${exchange.idBook}</td>
                         <td>${exchange.exchangeDate}</td>
                     </tr>
                 </c:forEach>
