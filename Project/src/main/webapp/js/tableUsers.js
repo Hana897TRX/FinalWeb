@@ -11,6 +11,12 @@ let load = () => {
     getModalData();
     let botonE = document.getElementById("btnEditUser");
     botonE.addEventListener("click", update);
+
+    document.getElementById("search").addEventListener("change", search);
+}
+
+function search(event){
+    find(event.currentTarget.value);
 }
 
 let regis = () => {

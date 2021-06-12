@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "LoginController", value = "/LoginController")
+@WebServlet(name = "login", value = "/login")
 public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,15 +32,18 @@ public class LoginController extends HttpServlet {
             System.out.println(user);
 
             if(user != null){
-                response.sendRedirect("index.jsp");
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("idUser", user.getIdUser());
+                System.out.println(user.getIdUser());
+                response.sendRedirect("home.jsp");
             }else{
                 request.setAttribute("mensaje", "Error al iniciar sesión");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
 
         }else {
             request.setAttribute("mensaje", "El usuario o contraseña no son validos");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 }

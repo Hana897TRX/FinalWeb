@@ -33,7 +33,7 @@ public class UsuarioController extends HttpServlet {
             request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
         }
         else
-            request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);*/
+            request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);*/
         System.out.println("Got to controller");
         UsuarioDao usuarioDao = new UsuarioDao();
         List<Usuario> usuariosList = usuarioDao.getUsers();

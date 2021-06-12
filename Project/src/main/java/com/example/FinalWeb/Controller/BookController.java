@@ -17,6 +17,8 @@ import java.util.List;
 @WebServlet(name = "books", value = "/books")
 @MultipartConfig
 public class BookController extends HttpServlet {
+    private int idUser = 0;
+
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idBook = Integer.parseInt(request.getParameter("idBook"));
@@ -29,20 +31,23 @@ public class BookController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String message = "";
+        int message = 0;
 
-        int idUser = 0;
-        try {
-            idUser = Integer.parseInt(request.getParameter("idUser"));
-        } catch (Exception e) {
-            idUser = 1;
+        HttpSession sesion = request.getSession(false);
+        System.out.print(sesion.getAttribute("idUser"));
+        message = (Integer)sesion.getAttribute("idUser");
+        System.out.print("Book controller: " + message);
+
+        if(message != 0) {
+            idUser = message;
+            BookDao bookDao = new BookDao();
+            List<Book> bookList = bookDao.getBooks(idUser);
+            //System.out.println(bookList);
+            request.setAttribute("userBooks", bookList);
+            request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
+        }else{
+            response.sendRedirect("index.jsp");
         }
-
-        BookDao bookDao = new BookDao();
-        List<Book> bookList = bookDao.getBooks(idUser);
-        //System.out.println(bookList);
-        request.setAttribute("userBooks", bookList);
-        request.getRequestDispatcher("/userBooks.jsp").forward(request, response);
 
     }
 

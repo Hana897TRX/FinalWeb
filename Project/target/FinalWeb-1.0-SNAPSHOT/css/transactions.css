@@ -11,3 +11,20 @@ table tr:nth-child(odd){background-color: white;}
 table tr:nth-child(even){background-color: #cec6ff;}
 
 tr:hover td {background: #d0dafd; color: #339;}
+
+.col{
+    text-align: center;
+}
+
+.card{
+    border-radius: 12px;
+    padding: 0%;
+}
+
+.p-3{
+    padding: 0%;
+}
+
+.title{
+    background-color: #bc98f3;
+}

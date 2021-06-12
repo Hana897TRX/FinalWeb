@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="css/tableUsers.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/transactions.css">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="js/tableUsers.js"></script>
@@ -71,42 +72,53 @@
                 </div>
             </nav>
 
-            <div class="container">
-                <table class="table table-dark">
-                    <thead>
-                    <tr class="table-dark">
-                        <th scope="col">ID User</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Birthday</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">User Type</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${usuarioslist}" var="user">
+            <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
+                <div class="input-group">
+                    <span class="input-group-text" style="background-color: white; border: white;"><i class="bi bi-search"></i></span>
+                    <input type="email" class="form-control" id="search" aria-describedby="emailHelp" placeholder="Search an user" style="border-color: rgba(0, 0, 0, 0);">
+                </div>
+            </div>
+            <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
+
+
+            <div class="card shadow-sm p-3 mb-5 bg-white" style="margin-top: 1%; margin-left: 5%; margin-right: 5%; padding: 1%;">
+                <div class="container">
+                    <table>
+                        <thead>
                         <tr>
-                            <td class="table-info">${user.idUser}</td>
-                            <td class="table-info">${user.name}</td>
-                            <td class="table-info">${user.lastName}</td>
-                            <td class="table-info">${user.birthday}</td>
-                            <td class="table-info">${user.email}</td>
-                            <td class="table-info">${user.userType}</td>
-                            <td class="table-info">
-                                <button class="btn btn-primary me-md-2 btn-edit" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#editModal" data-id="${user.idUser}"><i data-id="${user.idUser}"
-                                                                                                class="bi bi-pen"
-                                                                                                data-bs-toggle="modal"
-                                                                                                data-bs-target="#editModal"></i>
-                                </button>
-                                <button class="btn btn-danger" type="button" data-id="${user.idUser}"><i
-                                        data-id="${user.idUser}" class="bi bi-trash2"></i></button>
-                            </td>
+                            <th scope="col">ID User</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Birthday</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">User Type</th>
+                            <th scope="col">Acciones</th>
                         </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${usuarioslist}" var="user">
+                            <tr>
+                                <td>${user.idUser}</td>
+                                <td>${user.name}</td>
+                                <td>${user.lastName}</td>
+                                <td>${user.birthday}</td>
+                                <td>${user.email}</td>
+                                <td>${user.userType}</td>
+                                <td>
+                                    <button class="btn btn-primary me-md-2 btn-edit" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#editModal" data-id="${user.idUser}"><i data-id="${user.idUser}"
+                                                                                                    class="bi bi-pen"
+                                                                                                    data-bs-toggle="modal"
+                                                                                                    data-bs-target="#editModal"></i>
+                                    </button>
+                                    <button class="btn btn-danger" type="button" data-id="${user.idUser}"><i
+                                            data-id="${user.idUser}" class="bi bi-trash2"></i></button>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
